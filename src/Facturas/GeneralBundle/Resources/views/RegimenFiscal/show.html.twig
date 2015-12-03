@@ -3,18 +3,22 @@
 {% block body -%}
 <div class="panel">
     <div class="panel-heading">
-        <span class="panel-title">Regimen Fiscal</span>
+        <span class="panel-title">Ver Regimen Fiscal</span>
     </div>
     <div class="panel-body">
-        <div class="col-xs-12 col-sm-6">
-            <p><b>Regimen Fiscal:</b> {{ entity.regimenFiscal }}</p>
+        <div class="col-xs-12 col-lg-2">
+            <p><b>Regimen Fiscal:</b> </p>
+        </div>
+        <div>
+            {{ entity.regimenFiscal }}
         </div>
     </div>
 
     <div class="panel-footer">
         <div class="inline">
             <a href="{{ path('regimenfiscal_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
-            <a class="btn btn-warning" href="{{ path('regimenfiscal') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a>
+            <a class="btn btn-warning" href="{{ path('regimenfiscal') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a><br /><br />
+             {{ form(delete_form) }}
         </div>
     </div>
     

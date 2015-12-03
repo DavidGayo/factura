@@ -20,6 +20,7 @@ class EmisorType extends AbstractType
             ->add('tipoContribuyente')
             ->add('giro')
             ->add('regimenFiscal')
+            ->add('direccionEmisor', new DireccionEmisorType(), array('attr'=> array('id'=>'well')))
         ;
     }
     

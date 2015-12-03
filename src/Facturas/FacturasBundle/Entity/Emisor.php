@@ -213,4 +213,6 @@ class Emisor
     {
         return $this->regimenFiscal;
     }
+
+    
 }
