@@ -1,0 +1,30 @@
+emisor:
+    path:     /
+    defaults: { _controller: "FacturasBundle:Emisor:index" }
+
+emisor_show:
+    path:     /{id}/show
+    defaults: { _controller: "FacturasBundle:Emisor:show" }
+
+emisor_new:
+    path:     /new
+    defaults: { _controller: "FacturasBundle:Emisor:new" }
+
+emisor_create:
+    path:     /create
+    defaults: { _controller: "FacturasBundle:Emisor:create" }
+    methods:  POST
+
+emisor_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FacturasBundle:Emisor:edit" }
+
+emisor_update:
+    path:     /{id}/update
+    defaults: { _controller: "FacturasBundle:Emisor:update" }
+    methods:  [POST, PUT]
+
+emisor_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FacturasBundle:Emisor:delete" }
+    methods:  [POST, DELETE]

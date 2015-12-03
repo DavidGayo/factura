@@ -1,0 +1,32 @@
+Facturas\FacturasBundle\Entity\Folio:
+    type: entity
+    table: null
+    repositoryClass: Facturas\FacturasBundle\Entity\FolioRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        serie:
+            type: string
+            length: '20'
+        folioInicial:
+            type: string
+            length: '20'
+        folioFinal:
+            type: string
+            length: '20'
+        tipoDocumento:
+            type: string
+            length: '20'
+        lugarExpedicion:
+            type: string
+            length: '50'
+        precioUnitario:
+            type: integer
+        modelo:
+            type: string
+            length: '20'
+    lifecycleCallbacks: {  }

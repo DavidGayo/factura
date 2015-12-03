@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="panel">
+    <div class="panel-heading">
+        <span class="panel-title">Regimen Fiscal</span>
+    </div>
+    <div class="panel-body">
+        <div class="col-xs-12 col-sm-6">
+            <p><b>Regimen Fiscal:</b> {{ entity.regimenFiscal }}</p>
+        </div>
+    </div>
+
+    <div class="panel-footer">
+        <div class="inline">
+            <a href="{{ path('regimenfiscal_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
+            <a class="btn btn-warning" href="{{ path('regimenfiscal') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a>
+        </div>
+    </div>
+    
+       
+
+</div>
+{% endblock %}
+{% block js %}
+<script src="{{ asset('bundles/app/vendor/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
+<script src="{{ asset('bundles/app/vendor/plugins/highcharts/highcharts.js') }}"></script>
+<script src="{{ asset('bundles/app/vendor/plugins/circles/circles.js') }}"></script>
+<script src="{{ asset('bundles/app/assets/js/demo/charts/highcharts.js') }}"></script>
+{% endblock %}

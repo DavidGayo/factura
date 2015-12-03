@@ -1,0 +1,30 @@
+contribuyente:
+    path:     /
+    defaults: { _controller: "GeneralBundle:Contribuyente:index" }
+
+contribuyente_show:
+    path:     /{id}/show
+    defaults: { _controller: "GeneralBundle:Contribuyente:show" }
+
+contribuyente_new:
+    path:     /new
+    defaults: { _controller: "GeneralBundle:Contribuyente:new" }
+
+contribuyente_create:
+    path:     /create
+    defaults: { _controller: "GeneralBundle:Contribuyente:create" }
+    methods:  POST
+
+contribuyente_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GeneralBundle:Contribuyente:edit" }
+
+contribuyente_update:
+    path:     /{id}/update
+    defaults: { _controller: "GeneralBundle:Contribuyente:update" }
+    methods:  [POST, PUT]
+
+contribuyente_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "GeneralBundle:Contribuyente:delete" }
+    methods:  [POST, DELETE]

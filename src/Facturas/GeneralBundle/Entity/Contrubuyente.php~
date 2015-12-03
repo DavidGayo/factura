@@ -1,0 +1,55 @@
+<?php
+
+namespace Facturas\GeneralBundle\Entity;
+
+/**
+ * Contrubuyente
+ */
+class Contrubuyente
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $tipoContribuyente;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set tipoContribuyente
+     *
+     * @param string $tipoContribuyente
+     *
+     * @return Contrubuyente
+     */
+    public function setTipoContribuyente($tipoContribuyente)
+    {
+        $this->tipoContribuyente = $tipoContribuyente;
+
+        return $this;
+    }
+
+    /**
+     * Get tipoContribuyente
+     *
+     * @return string
+     */
+    public function getTipoContribuyente()
+    {
+        return $this->tipoContribuyente;
+    }
+}
+

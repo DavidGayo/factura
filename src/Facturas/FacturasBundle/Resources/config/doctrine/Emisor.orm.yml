@@ -1,0 +1,41 @@
+Facturas\FacturasBundle\Entity\Emisor:
+    type: entity
+    table: null
+    repositoryClass: Facturas\FacturasBundle\Entity\EmisorRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        razonSocial:
+            type: string
+            length: '100'
+        rfc:
+            type: string
+            length: '15'
+    manyToOne:
+        tipoContribuyente:
+            targetEntity: Facturas\GeneralBundle\Entity\Contribuyente
+            inversedBy: emisor
+            joinColumn: 
+                name: tipoContribuyente_id
+                referencedColumnName: id
+        giro:
+            targetEntity: Facturas\GeneralBundle\Entity\Giro
+            inversedBy: emisor
+            joinColumn:
+                name: giro_id
+                referencedColumnName: id
+        regimenFiscal:
+            targetEntity: Facturas\GeneralBundle\Entity\RegimenFiscal
+            inversedBy: emisor
+            joinColumn: 
+                name: regimenFiscal_id
+                referencedColumnName: id
+    oneToMany:
+        direccionEmisor:
+            targetEntity: Facturas\FacturasBundle\Entity\DireccionEmisor
+            mappedBy: Emisor
+    lifecycleCallbacks: {  }

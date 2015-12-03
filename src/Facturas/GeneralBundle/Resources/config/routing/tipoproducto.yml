@@ -1,0 +1,30 @@
+tipoproducto:
+    path:     /
+    defaults: { _controller: "GeneralBundle:TipoProducto:index" }
+
+tipoproducto_show:
+    path:     /{id}/show
+    defaults: { _controller: "GeneralBundle:TipoProducto:show" }
+
+tipoproducto_new:
+    path:     /new
+    defaults: { _controller: "GeneralBundle:TipoProducto:new" }
+
+tipoproducto_create:
+    path:     /create
+    defaults: { _controller: "GeneralBundle:TipoProducto:create" }
+    methods:  POST
+
+tipoproducto_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GeneralBundle:TipoProducto:edit" }
+
+tipoproducto_update:
+    path:     /{id}/update
+    defaults: { _controller: "GeneralBundle:TipoProducto:update" }
+    methods:  [POST, PUT]
+
+tipoproducto_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "GeneralBundle:TipoProducto:delete" }
+    methods:  [POST, DELETE]

@@ -1,0 +1,27 @@
+facturas_contacto:
+    resource: "@FacturasBundle/Resources/config/routing/contacto.yml"
+    prefix:   /contacto
+
+facturas_producto:
+    resource: "@FacturasBundle/Resources/config/routing/producto.yml"
+    prefix:   /producto
+
+facturas_direccioncliente:
+    resource: "@FacturasBundle/Resources/config/routing/direccioncliente.yml"
+    prefix:   /direccioncliente
+
+facturas_cliente:
+    resource: "@FacturasBundle/Resources/config/routing/cliente.yml"
+    prefix:   /cliente
+
+facturas_emisor:
+    resource: "@FacturasBundle/Resources/config/routing/emisor.yml"
+    prefix:   /emisor
+
+facturas_direccionemisor:
+    resource: "@FacturasBundle/Resources/config/routing/direccionemisor.yml"
+    prefix:   /direccionemisor
+
+facturas_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: FacturasBundle:Default:index }

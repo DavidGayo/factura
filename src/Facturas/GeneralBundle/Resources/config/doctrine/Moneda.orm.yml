@@ -1,0 +1,22 @@
+Facturas\GeneralBundle\Entity\Moneda:
+    type: entity
+    table: null
+    repositoryClass: Facturas\GeneralBundle\Entity\MonedaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        tipoMoneda:
+            type: string
+            length: '20'
+    oneTomany:
+        cliente:
+            targetEntity: Facturas\FacturasBundle\Entity\Cliente
+            mappedBy: Moneda
+        direccionEmisor:
+            targetEntity: Facturas\FacturasBundle\Entity\DireccionEmisor
+            mappedBy: Moneda
+    lifecycleCallbacks: {  }

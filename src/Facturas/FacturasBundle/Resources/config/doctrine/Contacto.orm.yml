@@ -1,0 +1,43 @@
+Facturas\FacturasBundle\Entity\Contacto:
+    type: entity
+    table: null
+    repositoryClass: Facturas\FacturasBundle\Entity\ContactoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: '30'
+        apePat:
+            type: string
+            length: '30'
+        apeMat:
+            type: string
+            length: '30'
+        email:
+            type: string
+            length: 255
+        nextel:
+            type: string
+            length: '15'
+        telefono1:
+            type: string
+            length: '15'
+        telefono2:
+            type: string
+            length: '15'
+        celular:
+            type: string
+            length: '15'
+    manyToOne:
+        cliente:
+            targetEntity: Facturas\FacturasBundle\Entity\Cliente
+            inversedBy: contacto
+            joinColumn: 
+                name: cliente_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

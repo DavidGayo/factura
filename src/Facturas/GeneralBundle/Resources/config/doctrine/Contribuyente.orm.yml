@@ -1,0 +1,19 @@
+Facturas\GeneralBundle\Entity\Contribuyente:
+    type: entity
+    table: null
+    repositoryClass: Facturas\GeneralBundle\Entity\ContribuyenteRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        tipoContribuyente:
+            type: string
+            length: '50'
+    oneToMany:
+        emisor:
+            targetEntity: Facturas\FacturasBundle\Entity\Emisor
+            mappedBy: Contribuyente
+    lifecycleCallbacks: {  }

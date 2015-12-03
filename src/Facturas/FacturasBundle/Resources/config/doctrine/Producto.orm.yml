@@ -1,0 +1,36 @@
+Facturas\FacturasBundle\Entity\Producto:
+    type: entity
+    table: null
+    repositoryClass: Facturas\FacturasBundle\Entity\ProductoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        codigoBarras:
+            type: string
+            length: '20'
+        clave:
+            type: string
+            length: '20'
+        marca:
+            type: string
+            length: '30'
+        unidadMedida:
+            type: string
+            length: '20'
+        precioUnitario:
+            type: integer
+        modelo:
+            type: string
+            length: '15'
+    manyToOne:
+        tipoProducto:
+            targetEntity: Facturas\GeneralBundle\Entity\TipoProducto
+            inversedBy: producto
+            joinColumn:
+                name: tipoProducto_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

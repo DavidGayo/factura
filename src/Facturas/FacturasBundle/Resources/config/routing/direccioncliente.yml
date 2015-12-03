@@ -1,0 +1,30 @@
+direccioncliente:
+    path:     /
+    defaults: { _controller: "FacturasBundle:DireccionCliente:index" }
+
+direccioncliente_show:
+    path:     /{id}/show
+    defaults: { _controller: "FacturasBundle:DireccionCliente:show" }
+
+direccioncliente_new:
+    path:     /new
+    defaults: { _controller: "FacturasBundle:DireccionCliente:new" }
+
+direccioncliente_create:
+    path:     /create
+    defaults: { _controller: "FacturasBundle:DireccionCliente:create" }
+    methods:  POST
+
+direccioncliente_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FacturasBundle:DireccionCliente:edit" }
+
+direccioncliente_update:
+    path:     /{id}/update
+    defaults: { _controller: "FacturasBundle:DireccionCliente:update" }
+    methods:  [POST, PUT]
+
+direccioncliente_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FacturasBundle:DireccionCliente:delete" }
+    methods:  [POST, DELETE]

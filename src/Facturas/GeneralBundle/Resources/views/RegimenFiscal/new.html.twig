@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="panel">
+	<div class="panel-heading">
+		<span class="panel-title">Nuevo Regimen Fiscal</span>
+	</div>
+	<div class="panel-body">
+    {{ form_start(form) }}
+    	{{ form_errors(form) }}
+
+    <div class="form-group">
+				<label class="col-lg-3 control-label">Regimen Fiscal</label>
+				<div class="col-lg-5 mb10">
+					{{ form_errors(form.regimenFiscal) }}
+					{{ form_widget(form.regimenFiscal, {'attr': {'class': 'form-control'}}) }}
+				</div>
+			</div>
+
+			{{ form_widget(form._token) }}
+			
+
+			<div class="col-xs-12">
+				<button class="btn btn-success" type="submit" id="sendform"><i class="fa fa-plus"></i>&nbsp;Crear</button>
+				<a class="btn btn-warning" href="{{ path('regimenfiscal') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a>
+				<button class="btn btn-danger" type="reset"><i class="fa fa-close"></i>&nbsp;Cancelar</button>
+			</div>
+		</form>
+
+	</div>
+</div>
+{% endblock %}

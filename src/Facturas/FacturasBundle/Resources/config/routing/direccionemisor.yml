@@ -1,0 +1,30 @@
+direccionemisor:
+    path:     /
+    defaults: { _controller: "FacturasBundle:DireccionEmisor:index" }
+
+direccionemisor_show:
+    path:     /{id}/show
+    defaults: { _controller: "FacturasBundle:DireccionEmisor:show" }
+
+direccionemisor_new:
+    path:     /new
+    defaults: { _controller: "FacturasBundle:DireccionEmisor:new" }
+
+direccionemisor_create:
+    path:     /create
+    defaults: { _controller: "FacturasBundle:DireccionEmisor:create" }
+    methods:  POST
+
+direccionemisor_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FacturasBundle:DireccionEmisor:edit" }
+
+direccionemisor_update:
+    path:     /{id}/update
+    defaults: { _controller: "FacturasBundle:DireccionEmisor:update" }
+    methods:  [POST, PUT]
+
+direccionemisor_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FacturasBundle:DireccionEmisor:delete" }
+    methods:  [POST, DELETE]

@@ -1,0 +1,38 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="panel-title">Nuevo Regimen Fiscal</span>
+    </div>
+    <div class="panel-body">
+        <a href="{{ path('regimenfiscal_new') }}" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;Nuevo</a>
+
+        <div class="table-responsive mt15">
+            <table class="records_list table table-bordered mbn">
+        <thead>
+            <tr>
+                <th>Regimenfiscal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr class="odd gradeX">
+                <td>{{ entity.regimenFiscal }}</td>
+                <td>
+        
+                    <a href="{{ path('regimenfiscal_show', { 'id': entity.id }) }}" class="btn btn-default"><i class="fa fa-eye"></i>&nbsp;Ver</a>
+                 
+                    <a href="{{ path('regimenfiscal_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
+                                      
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div><!-- table-responsive -->
+    </div><!-- panel-body -->
+</div><!-- panel -->
+        
+    {% endblock %}

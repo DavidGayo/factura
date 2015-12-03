@@ -1,0 +1,30 @@
+moneda:
+    path:     /
+    defaults: { _controller: "GeneralBundle:Moneda:index" }
+
+moneda_show:
+    path:     /{id}/show
+    defaults: { _controller: "GeneralBundle:Moneda:show" }
+
+moneda_new:
+    path:     /new
+    defaults: { _controller: "GeneralBundle:Moneda:new" }
+
+moneda_create:
+    path:     /create
+    defaults: { _controller: "GeneralBundle:Moneda:create" }
+    methods:  POST
+
+moneda_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GeneralBundle:Moneda:edit" }
+
+moneda_update:
+    path:     /{id}/update
+    defaults: { _controller: "GeneralBundle:Moneda:update" }
+    methods:  [POST, PUT]
+
+moneda_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "GeneralBundle:Moneda:delete" }
+    methods:  [POST, DELETE]

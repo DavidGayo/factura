@@ -1,0 +1,25 @@
+Facturas\GeneralBundle\Entity\Pais:
+    type: entity
+    table: null
+    repositoryClass: Facturas\GeneralBundle\Entity\PaisRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        pais:
+            type: string
+            length: '50'
+    oneToMany:
+        cliente:
+            targetEntity: Facturas\FacturasBundle\Entity\Cliente
+            mappedBy: Pais
+        direccionCliente:
+            targetEntity: Facturas\FacturasBundle\Entity\DireccionCliente
+            mappedBy: Pais
+        estado:
+            targetEntity: Facturas\GeneralBundle\Entity\Estado
+            mappedBy: Pais
+    lifecycleCallbacks: {  }

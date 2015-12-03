@@ -1,0 +1,30 @@
+contacto:
+    path:     /
+    defaults: { _controller: "FacturasBundle:Contacto:index" }
+
+contacto_show:
+    path:     /{id}/show
+    defaults: { _controller: "FacturasBundle:Contacto:show" }
+
+contacto_new:
+    path:     /new
+    defaults: { _controller: "FacturasBundle:Contacto:new" }
+
+contacto_create:
+    path:     /create
+    defaults: { _controller: "FacturasBundle:Contacto:create" }
+    methods:  POST
+
+contacto_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FacturasBundle:Contacto:edit" }
+
+contacto_update:
+    path:     /{id}/update
+    defaults: { _controller: "FacturasBundle:Contacto:update" }
+    methods:  [POST, PUT]
+
+contacto_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FacturasBundle:Contacto:delete" }
+    methods:  [POST, DELETE]

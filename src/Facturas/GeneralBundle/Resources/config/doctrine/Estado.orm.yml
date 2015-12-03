@@ -1,0 +1,32 @@
+Facturas\GeneralBundle\Entity\Estado:
+    type: entity
+    table: null
+    repositoryClass: Facturas\GeneralBundle\Entity\EstadoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        estado:
+            type: string
+            length: '50'
+    oneToMany:
+        cliente:
+            targetEntity: Facturas\FacturasBundle\Entity\Cliente
+            mappedBy: Estado
+        direccionCliente:
+            targetEntity: Facturas\FacturasBundle\Entity\DireccionCliente
+            mappedBy: Estado
+        municipio:
+            targetEntity: Facturas\GeneralBundle\Entity\Municipio
+            mappedBy: Estado
+    manyToOne:
+        pais:
+            targetEntity: Facturas\GeneralBundle\Entity\Pais
+            inversedBy: estado
+            joinColumn:
+                name: pais_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

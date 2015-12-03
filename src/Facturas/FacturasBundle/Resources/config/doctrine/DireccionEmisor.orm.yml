@@ -1,0 +1,48 @@
+Facturas\FacturasBundle\Entity\DireccionEmisor:
+    type: entity
+    table: null
+    repositoryClass: Facturas\FacturasBundle\Entity\DireccionEmisorRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        calle:
+            type: string
+            length: '50'
+        numeroExt:
+            type: string
+            length: '10'
+        numeroInt:
+            type: string
+            length: '10'
+        colonia:
+            type: string
+            length: '50'
+        localidad:
+            type: string
+            length: '50'
+        codigoPostal:
+            type: integer
+        email:
+            type: string
+            length: 255
+        telefono:
+            type: string
+            length: '15'
+    manyToOne:
+        emisor:
+            targetEntity: Facturas\FacturasBundle\Entity\Emisor
+            inversedBy: direccionEmisor
+            joinColumn:
+                name: emisor_id
+                referencedColumnName: id
+        tipoMoneda:
+            targetEntity: Facturas\GeneralBundle\Entity\Moneda
+            inversedBy: direccionEmisor
+            joinColumn:
+                name: tipoMoneda_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

@@ -1,0 +1,63 @@
+Facturas\FacturasBundle\Entity\DireccionCliente:
+    type: entity
+    table: null
+    repositoryClass: Facturas\FacturasBundle\Entity\DireccionClienteRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        alias:
+            type: string
+            length: '20'
+        calle:
+            type: string
+            length: '50'
+        numeroExt:
+            type: string
+            length: '10'
+        numeroInt:
+            type: string
+            length: '10'
+        colonia:
+            type: string
+            length: '50'
+        localidad:
+            type: string
+            length: '50'
+        codigoPostal:
+            type: integer
+        telefono:
+            type: string
+            length: '15'
+        email:
+            type: string
+            length: 255
+    manyToOne:
+        cliente:
+            targetEntity: Facturas\FacturasBundle\Entity\Cliente
+            inversedBy: direccionCliente
+            joinColumn:
+                name: cliente_id
+                referencedColumnName: id
+        pais:
+            targetEntity: Facturas\GeneralBundle\Entity\Pais
+            inversedBy: direccionCliente
+            joinColumn:
+                name: pais_id
+                referencedColumnName: id
+        estado:
+            targetEntity: Facturas\GeneralBundle\Entity\Estado
+            inversedBy: direccionCliente
+            joinColumn:
+                name: estado_id
+                referencedColumnName: id
+        municipio:
+            targetEntity: Facturas\GeneralBundle\Entity\Municipio
+            inversedBy: direccionCliente
+            joinColumn:
+                name: municipio_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

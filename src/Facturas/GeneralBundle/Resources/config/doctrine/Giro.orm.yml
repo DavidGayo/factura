@@ -1,0 +1,19 @@
+Facturas\GeneralBundle\Entity\Giro:
+    type: entity
+    table: null
+    repositoryClass: Facturas\GeneralBundle\Entity\GiroRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        giro:
+            type: string
+            length: '50'
+    oneToMany:
+        emisor:
+            targetEntity: Facturas\FacturasBundle\Entity\Emisor
+            mappedBy: Giro
+    lifecycleCallbacks: {  }

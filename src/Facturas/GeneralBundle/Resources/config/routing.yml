@@ -1,0 +1,35 @@
+general_contribuyente:
+    resource: "@GeneralBundle/Resources/config/routing/contribuyente.yml"
+    prefix:   /contribuyente
+
+general_regimenfiscal:
+    resource: "@GeneralBundle/Resources/config/routing/regimenfiscal.yml"
+    prefix:   /regimenfiscal
+
+general_pais:
+    resource: "@GeneralBundle/Resources/config/routing/pais.yml"
+    prefix:   /pais
+
+general_tipoproducto:
+    resource: "@GeneralBundle/Resources/config/routing/tipoproducto.yml"
+    prefix:   /tipoproducto
+
+general_estado:
+    resource: "@GeneralBundle/Resources/config/routing/estado.yml"
+    prefix:   /estado
+
+general_giro:
+    resource: "@GeneralBundle/Resources/config/routing/giro.yml"
+    prefix:   /giro
+
+general_municipio:
+    resource: "@GeneralBundle/Resources/config/routing/municipio.yml"
+    prefix:   /municipio
+
+general_moneda:
+    resource: "@GeneralBundle/Resources/config/routing/moneda.yml"
+    prefix:   /moneda
+
+general_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: GeneralBundle:Default:index }

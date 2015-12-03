@@ -1,0 +1,82 @@
+Facturas\FacturasBundle\Entity\Cliente:
+    type: entity
+    table: null
+    repositoryClass: Facturas\FacturasBundle\Entity\ClienteRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        razonSocial:
+            type: string
+            length: '50'
+        calle:
+            type: string
+            length: '50'
+        numeroExt:
+            type: string
+            length: '10'
+        numeroInt:
+            type: string
+            length: '10'
+        colonia:
+            type: string
+            length: '50'
+        rfc:
+            type: string
+            length: '15'
+        codigoPostal:
+            type: integer
+        telefono:
+            type: string
+            length: '15'
+        localidad:
+            type: string
+            length: '50'
+        alias:
+            type: string
+            length: '20'
+        email:
+            type: string
+            length: 255
+    manyToOne:
+        regimenTributario:
+            targetEntity: Facturas\GeneralBundle\Entity\RegimenTributario
+            inversedBy: cliente
+            joinColumn:
+                name: regimenTributario_id
+                referencedColumnName: id
+        tipoMoneda:
+            targetEntity: Facturas\GeneralBundle\Entity\Moneda
+            inversedBy: cliente
+            joinColumn:
+                name: tipoMoneda_id
+                referencedColumnName: id
+        pais:
+            targetEntity: Facturas\GeneralBundle\Entity\Pais
+            inversedBy: cliente
+            joinColumn:
+                name: pais_id
+                referencedColumnName: id
+        estado:
+            targetEntity: Facturas\GeneralBundle\Entity\Estado
+            inversedBy: cliente
+            joinColumn:
+                name: estado_id
+                referencedColumnName: id
+        municipio:
+            targetEntity: Facturas\GeneralBundle\Entity\Municipio
+            inversedBy: cliente
+            joinColumn:
+                name: municipio_id
+                referencedColumnName: id
+    oneToMany:
+        direccionCliente:
+            targetEntity: Facturas\FacturasBundle\Entity\DireccionCliente
+            mappedBy: Cliente
+        contacto:
+            targetEntity: Facturas\FacturasBundle\Entity\Contacto
+            mappedBy: Cliente
+    lifecycleCallbacks: {  }

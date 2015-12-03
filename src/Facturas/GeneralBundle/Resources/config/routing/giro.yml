@@ -1,0 +1,30 @@
+giro:
+    path:     /
+    defaults: { _controller: "GeneralBundle:Giro:index" }
+
+giro_show:
+    path:     /{id}/show
+    defaults: { _controller: "GeneralBundle:Giro:show" }
+
+giro_new:
+    path:     /new
+    defaults: { _controller: "GeneralBundle:Giro:new" }
+
+giro_create:
+    path:     /create
+    defaults: { _controller: "GeneralBundle:Giro:create" }
+    methods:  POST
+
+giro_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GeneralBundle:Giro:edit" }
+
+giro_update:
+    path:     /{id}/update
+    defaults: { _controller: "GeneralBundle:Giro:update" }
+    methods:  [POST, PUT]
+
+giro_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "GeneralBundle:Giro:delete" }
+    methods:  [POST, DELETE]

@@ -1,0 +1,19 @@
+Facturas\GeneralBundle\Entity\TipoProducto:
+    type: entity
+    table: null
+    repositoryClass: Facturas\GeneralBundle\Entity\TipoProductoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        tipoProducto:
+            type: string
+            length: '20'
+    oneToMany:
+        producto:
+            targetEntity: Facturas\FacturasBundle\Entity\Producto
+            mappedBy: TipoProducto
+    lifecycleCallbacks: {  }

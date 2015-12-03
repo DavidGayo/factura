@@ -1,0 +1,19 @@
+Facturas\GeneralBundle\Entity\RegimenTributario:
+    type: entity
+    table: null
+    repositoryClass: Facturas\GeneralBundle\Entity\RegimenTributarioRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        regimenTributario:
+            type: string
+            length: '50'
+    oneToMany:
+        cliente:
+            targetEntity: Facturas\FacturasBundle\Entity\Cliente
+            mappedBy: RegimenTributario
+    lifecycleCallbacks: {  }
