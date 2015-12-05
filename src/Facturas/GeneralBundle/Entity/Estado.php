@@ -206,4 +206,9 @@ class Estado
     {
         return $this->pais;
     }
+
+    public function __toString()
+    {
+        return $this->estado;
+    }
 }

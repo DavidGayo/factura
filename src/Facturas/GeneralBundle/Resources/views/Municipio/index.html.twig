@@ -1,41 +1,36 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Municipio list</h1>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="panel-title">Municipio</span>
+        </div>
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Municipio</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('municipio_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.municipio }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('municipio_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('municipio_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('municipio_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+        <div claass="panel-body">
+            <a href="{{ path('municipio_new') }}" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;Nuevo</a>
+            
+            <div class="table-responsive mt15">
+                <table class="records_list table table-bordered mbn">
+                    <thead>
+                        <tr>                
+                            <th>Municipio</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entity in entities %}
+                            <tr class="odd gradeX">                
+                                <td>{{ entity.municipio }}</td>
+                                  
+                                <td>
+                                    <a href="{{ path('municipio_show', { 'id': entity.id }) }}" class="btn btn-default"><i class="fa fa-eye"></i>&nbsp;Ver</a>
+                                    <a href="{{ path('municipio_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>Editar</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>    
+            </div>
+        </div>
+    </div>
     {% endblock %}
