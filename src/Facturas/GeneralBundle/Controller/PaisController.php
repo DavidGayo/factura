@@ -217,7 +217,7 @@ class PaisController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('pais_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'Eliminar', 'attr' => array('class' => 'btn btn-danger')))
             ->getForm()
         ;
     }

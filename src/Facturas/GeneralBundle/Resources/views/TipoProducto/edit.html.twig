@@ -1,16 +1,33 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>TipoProducto edit</h1>
+    <div class="panel panel-default">
+    	<div class="panel-heading">
+            <span class="panel-title">Editar Tipo Producto</span>
+        </div>
 
-    {{ form(edit_form) }}
+        <div class="panel-body">
+        	{{ form_start(edit_form) }}
+        	{{ form_errors(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('tipoproducto') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+        	    <div class="form-group">
+        	    	<div class="row">
+        	            <label class="col-lg-3 control-label">Tipo Producto</label>
+        	            <div class="col-lg-5 mb10">
+        	            	{{ form_errors(edit_form.tipoProducto) }}
+        	            	{{ form_widget(edit_form.tipoProducto, {'attr': {'class': 'form-control'}}) }}
+        	            </div>
+        	        </div>
+        	    </div> 
+
+        	    {{ form_widget(edit_form._token) }}
+
+        	    <div class="col-xs-12">
+				    <button class="btn btn-success" type="submit" id="sendform"><i class="fa fa-plus"></i>&nbsp;Crear</button>
+				    <a class="btn btn-warning" href="{{ path('tipoproducto')}}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a>
+				    <button class="btn btn-danger" type="reset"><i class="fa fa-close"></i>&nbsp;Cancelar</button>
+			    </div>
+			</form> 
+	    </div>
+    </div>
 {% endblock %}

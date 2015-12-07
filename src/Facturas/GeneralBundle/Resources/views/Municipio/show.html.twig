@@ -7,18 +7,33 @@
         </div>
 
         <div class="panel-body">
-            <div class="col-xs-12 col-lg-2">
-                <p><b>Municipio</b></p>
+            <div class="form-group"> 
+            <div class="row">      
+                <div class="col-xs-12 col-lg-2">                 
+                    <p><b>Municipio</b></p>
+                </div>
+                <div class="col-xs-12 col-lg-2"> 
+                    {{ entity.municipio }}
+                </div>                                
             </div>
-            <div class="col-xs-12 col-lg-2">
-                {{ entity.municipio }}
+            </div>
+       
+            <div class="form-group">
+            <div class="row">
+                <div class="col-xs-12 col-lg-2">               
+                    <p><b>Estado</b></p> 
+                </div>
+                <div class="col-xs-12 col-lg-2"> 
+                    {{ entity.estado }} 
+                </div>
             </div>       
+            </div>
         </div>
 
         <div class="panel-footer">
             <div class="inline">  
                 <a href="{{ path('municipio_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
-                <a class="btn btn-warning" href="{{ path('municipio') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a><br /><br />        
+                <a class="btn btn-warning" href="{{ path('municipio') }}"><i class="fa fa-arrow-left"></i>&nbsp;Regresar</a><br /><br />        
                 {{ form(delete_form) }}  
             </div>
         </div>       
