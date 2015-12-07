@@ -51,4 +51,9 @@ class Moneda
     {
         return $this->tipoMoneda;
     }
+
+    public function __toString()
+    {
+        return $this->tipoMoneda;
+    }
 }

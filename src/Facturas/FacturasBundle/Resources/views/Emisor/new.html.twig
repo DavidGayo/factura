@@ -1,15 +1,27 @@
-{% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Emisor creation</h1>
+    <div class="panel">
+	<div class="panel-heading">
+		<span class="panel-title">Nuevo Emisor</span>
+	</div>
+	<div class="panel-body">
+		{{ form_start(form) }}
+			<div class="form-group">
+				<label class="col-lg-3 control-label">Razon Social</label>
+				<div class="col-lg-8 mb10">
+					{{ form_widget(form.razonSocial, {'attr': {'class': 'form-control'}}) }}
+				</div>
+			</div>
 
-    {{ form(form) }}
+			{{ form_widget(form._token) }}
+			{{ form_errors(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('emisor') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+			<div class="col-xs-12">
+				<button class="btn btn-danger" type="submit" id="sendform"><i class="fa fa-plus"></i>&nbsp;Crear</button>
+				<a class="btn btn-warning" href="{{ path('emisor') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a>
+			</div>
+
+		</form>
+	</div>
+</div>
 {% endblock %}

@@ -3,20 +3,25 @@
 {% block body -%}
     <h1>Emisor list</h1>
 
+    
+      <a id="new">nuevo</a>
+      <div id="nuevo"> 
+     
+    </div>
+
     <table class="records_list">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Razonsocial</th>
                 <th>Rfc</th>
-                <th>Actions</th>
+                <th>Aciones</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('emisor_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.razonSocial }}</td>
+                <td><a href="{{ path('emisor_show', { 'id': entity.id }) }}">{{ entity.razonSocial }}</a></td>
+                <td></td>
                 <td>{{ entity.rfc }}</td>
                 <td>
                 <ul>
@@ -41,3 +46,18 @@
         </li>
     </ul>
     {% endblock %}
+
+    {% block js %}
+    <script>
+
+    $(document).ready(function(){
+
+       $('#new').click(function(event){
+            event.preventDefault();
+            $('#nuevo').load("{{path ('emisor_new')}}");
+        });
+    });
+
+    </script>
+
+    {% endblock js%}

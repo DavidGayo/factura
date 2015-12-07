@@ -38,10 +38,12 @@ Facturas\FacturasBundle\Entity\DireccionCliente:
     manyToOne:
         cliente:
             targetEntity: Facturas\FacturasBundle\Entity\Cliente
+            cascade: [persist]
             inversedBy: direccionCliente
             joinColumn:
                 name: cliente_id
                 referencedColumnName: id
+                onDelete: CASCADE
         pais:
             targetEntity: Facturas\GeneralBundle\Entity\Pais
             inversedBy: direccionCliente

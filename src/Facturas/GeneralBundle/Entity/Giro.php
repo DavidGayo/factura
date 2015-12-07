@@ -97,4 +97,9 @@ class Giro
     {
         return $this->emisor;
     }
+
+    public function __toString()
+    {
+        return $this->giro;
+    }
 }

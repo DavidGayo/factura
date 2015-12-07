@@ -35,10 +35,12 @@ Facturas\FacturasBundle\Entity\DireccionEmisor:
     manyToOne:
         emisor:
             targetEntity: Facturas\FacturasBundle\Entity\Emisor
+            cascade: [persist]
             inversedBy: direccionEmisor
             joinColumn:
                 name: emisor_id
                 referencedColumnName: id
+                onDelete: CASCADE
         tipoMoneda:
             targetEntity: Facturas\GeneralBundle\Entity\Moneda
             inversedBy: direccionEmisor

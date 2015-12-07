@@ -23,7 +23,7 @@ class DireccionEmisorType extends AbstractType
             ->add('codigoPostal')
             ->add('email')
             ->add('telefono')
-            ->add('emisor')
+            ->add('emisor', new EmisorType())
             ->add('tipoMoneda')
         ;
     }

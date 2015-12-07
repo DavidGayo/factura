@@ -7,14 +7,22 @@
         </div>
 
         <div class="panel-body"> 
-            <div class="col-xs-12 col-lg-2">
-                <p><b>Estado</b></p>
-                <p><b>Pais</b></p>                
+            <div class="row">
+                <div class="col-xs-12 col-lg-2">
+                    <p><b>Estado</b></p>               
+                </div>
+                <div class="col-xs-12 col-lg-2">
+                    {{ entity.estado }}
+                </div>
             </div>
-            <div class="col-xs-12 col-lg-2">
-                {{ entity.estado }}
-                {{ entity.pais }}
-            </div> 
+            <div class="row">
+                <div class="col-xs-12 col-lg-2">
+                    <p><b>Pais</b></p>        
+                </div>
+                <div class="col-xs-12 col-lg-2">
+                    {{ entity.pais }} 
+                </div>
+            </div>
         </div>        
             
         <div class="panel-footer">

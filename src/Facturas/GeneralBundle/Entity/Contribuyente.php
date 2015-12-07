@@ -97,4 +97,9 @@ class Contribuyente
     {
         return $this->emisor;
     }
+
+    public function __toString()
+    {
+        return $this->tipoContribuyente;
+    }
 }
