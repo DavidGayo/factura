@@ -1,41 +1,35 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>RegimenTributario list</h1>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="panel-title">Regimen Tributario</span>
+        </div>
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Regimentributario</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('regimentributario_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.regimenTributario }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('regimentributario_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('regimentributario_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <div class="panel-body">
+            <a href="{{ path('regimentributario_new') }}" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;Nuevo</a>
 
-        <ul>
-        <li>
-            <a href="{{ path('regimentributario_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+            <div class="table-responsive mt15">
+            <table class="records_list table table-bordered mbn">
+                <thead>
+                        <tr>
+                            <th>Regimentributario</th>
+                            <th>Actions</th>
+                        </tr>
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+                        <tr class="odd gradeX">
+                            <td>{{ entity.regimenTributario }}</td>
+                            <td>
+                                <a href="{{ path('regimentributario_show', { 'id': entity.id }) }}" class="btn btn-default"><i class="fa fa-eye"></i>&nbsp;Ver</a>
+                                <a href="{{ path('regimentributario_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>                   
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

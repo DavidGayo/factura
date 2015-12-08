@@ -1,16 +1,31 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>RegimenTributario edit</h1>
+    <div class="panel panel-default">
+        <div class="panel-heading"> 
+            <span class="panel-title">Editar Regimen Tributario</span>
+        </div>
+        <div class="panel-body">
+        	{{ form_start(edit_form)}}
+        	{{ form_errors(edit_form)}}
 
-    {{ form(edit_form) }}
+        	<div class="form-group">
+        		<label class="col-lg-3 control-label">Regimen Tributario</label>
+        		    <div class="col-lg-5 mb10">
+                        {{ form_errors(edit_form.regimenTributario) }}
+                        {{ form_widget(edit_form.regimenTributario, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+            </div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('regimentributario') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+            {{ form_widget(edit_form._token) }}
+
+            <div class="col-xs-12">
+				<button class="btn btn-primary" type="submit" id="sendform"><i class="fa fa-pencil"></i>&nbsp;Actualizar</button>
+				<a class="btn btn-warning" href="{{ path('regimentributario') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a>
+			</div>  
+
+            </form>
+        </div>
+    </div>
+
 {% endblock %}

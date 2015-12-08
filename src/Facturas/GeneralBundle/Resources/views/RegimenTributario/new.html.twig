@@ -1,15 +1,33 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>RegimenTributario creation</h1>
+    <div class="panel panel-default">
+    	<div class="panel-heading">
+            <sapn class="panel-title">Nuevo Regimen Tributario</span>
+        </div>
 
-    {{ form(form) }}
+        <div class="panel-body">
+        	{{ form_start(form) }}
+        	{{ form_errors(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('regimentributario') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+        	<div class="form-group">
+        		<div class="row">
+        		    <label class="col-lg-3 control-label">Regimen Tributario</label>
+        		        <div class="col-lg-5 mb10">
+        		            {{ form_errors(form.regimenTributario) }}
+        		            {{ form_widget(form.regimenTributario, {'attr': {'class': 'form-control'}}) }}
+        		        </div>
+        		</div>
+        	</div>
+
+        	{{ form_widget(form._token) }}
+
+        	 <div class="col-xs-12">
+				<button class="btn btn-success" type="submit" id="sendform"><i class="fa fa-plus"></i>&nbsp;Crear</button>
+				<a class="btn btn-warning" href="{{ path('regimentributario') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a>
+				<button class="btn btn-danger" type="reset"><i class="fa fa-close"></i>&nbsp;Cancelar</button>
+			</div>
+			</form>        
+        </div>
+    </div>
 {% endblock %}

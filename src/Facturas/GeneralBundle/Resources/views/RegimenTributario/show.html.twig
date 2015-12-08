@@ -1,32 +1,30 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>RegimenTributario</h1>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span>Ver Regimen Tributario</span>
+        </div>
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Regimentributario</th>
-                <td>{{ entity.regimenTributario }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Regimen tributario</b></p>
+                    </div>
+                    <div class="col-xs-12 col-lg-2">              
+                        {{ entity.regimenTributario }}
+                    </div>
+                </div>
+            </div>
+        </div> 
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('regimentributario') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('regimentributario_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+        <div class="panel-footer">
+            <div class="inline">  
+                <a href="{{ path('regimentributario_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
+                <a class="btn btn-warning" href="{{ path('regimentributario') }}"><i class="fa fa-arrow-left"></i>&nbsp;Regresar</a><br /><br />        
+                {{ form(delete_form) }}  
+            </div>
+        </div>    
+    </div>
 {% endblock %}
