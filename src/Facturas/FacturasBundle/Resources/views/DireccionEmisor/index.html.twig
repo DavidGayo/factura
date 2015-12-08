@@ -1,15 +1,23 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>DireccionEmisor list</h1>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="panel-title">Direccion Emisor</span>
+    </div>
+    <div class="panel-body">
+        <a href="direccionemisor_new" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;Nuevo</a>
+        <div id="nuevo"> 
 
-    <table class="records_list">
+        </div>
+
+        <div class="table-responsive mt15">
+            <table class="records_list table table-bordered mbn">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Calle</th>
-                <th>Numeroext</th>
-                <th>Numeroint</th>
+                <th>Numero Ext</th>
+                <th>Numero Int</th>
                 <th>Colonia</th>
                 <th>Localidad</th>
                 <th>Codigopostal</th>
@@ -21,8 +29,7 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('direccionemisor_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.calle }}</td>
+                <td><a href="{{ path('direccionemisor_show', { 'id': entity.id }) }}">{{ entity.calle }}</a></td>
                 <td>{{ entity.numeroExt }}</td>
                 <td>{{ entity.numeroInt }}</td>
                 <td>{{ entity.colonia }}</td>
@@ -31,25 +38,17 @@
                 <td>{{ entity.email }}</td>
                 <td>{{ entity.telefono }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('direccionemisor_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('direccionemisor_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                        <a href="{{ path('direccionemisor_show', { 'id': entity.id }) }}" class="btn btn-default"><i class="fa fa-eye"></i>&nbsp;Ver</a>
+                   
+                        <a href="{{ path('direccionemisor_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+ </div><!-- table-responsive -->
+    </div><!-- panel-body -->
+</div><!-- panel -->
 
-        <ul>
-        <li>
-            <a href="{{ path('direccionemisor_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+        
     {% endblock %}

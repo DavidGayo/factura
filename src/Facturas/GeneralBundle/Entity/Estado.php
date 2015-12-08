@@ -211,4 +211,43 @@ class Estado
     {
         return $this->estado;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $direccionEmisor;
+
+
+    /**
+     * Add direccionEmisor
+     *
+     * @param \Facturas\FacturasBundle\Entity\DireccionEmisor $direccionEmisor
+     *
+     * @return Estado
+     */
+    public function addDireccionEmisor(\Facturas\FacturasBundle\Entity\DireccionEmisor $direccionEmisor)
+    {
+        $this->direccionEmisor[] = $direccionEmisor;
+
+        return $this;
+    }
+
+    /**
+     * Remove direccionEmisor
+     *
+     * @param \Facturas\FacturasBundle\Entity\DireccionEmisor $direccionEmisor
+     */
+    public function removeDireccionEmisor(\Facturas\FacturasBundle\Entity\DireccionEmisor $direccionEmisor)
+    {
+        $this->direccionEmisor->removeElement($direccionEmisor);
+    }
+
+    /**
+     * Get direccionEmisor
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getDireccionEmisor()
+    {
+        return $this->direccionEmisor;
+    }
 }

@@ -25,6 +25,9 @@ class DireccionEmisorType extends AbstractType
             ->add('telefono')
             ->add('emisor', new EmisorType())
             ->add('tipoMoneda')
+            ->add('pais')
+            ->add('estado')
+            ->add('municipio')
         ;
     }
     

@@ -1,3 +1,7 @@
+general_regimentributario:
+    resource: "@GeneralBundle/Resources/config/routing/regimentributario.yml"
+    prefix:   /regimentributario
+
 general_contribuyente:
     resource: "@GeneralBundle/Resources/config/routing/contribuyente.yml"
     prefix:   /contribuyente

@@ -22,4 +22,7 @@ Facturas\GeneralBundle\Entity\Pais:
         estado:
             targetEntity: Facturas\GeneralBundle\Entity\Estado
             mappedBy: Pais
+        direccionEmisor:
+            targetEntity: Facturas\FacturasBundle\Entity\DireccionEmisor
+            mappedBy: Pais
     lifecycleCallbacks: {  }

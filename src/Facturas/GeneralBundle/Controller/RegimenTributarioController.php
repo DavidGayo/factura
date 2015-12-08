@@ -1,41 +1,41 @@
 <?php
 
-namespace Facturas\FacturasBundle\Controller;
+namespace Facturas\GeneralBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Facturas\FacturasBundle\Entity\DireccionEmisor;
-use Facturas\FacturasBundle\Form\DireccionEmisorType;
+use Facturas\GeneralBundle\Entity\RegimenTributario;
+use Facturas\GeneralBundle\Form\RegimenTributarioType;
 
 /**
- * DireccionEmisor controller.
+ * RegimenTributario controller.
  *
  */
-class DireccionEmisorController extends Controller
+class RegimenTributarioController extends Controller
 {
 
     /**
-     * Lists all DireccionEmisor entities.
+     * Lists all RegimenTributario entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('FacturasBundle:DireccionEmisor')->findAll();
+        $entities = $em->getRepository('GeneralBundle:RegimenTributario')->findAll();
 
-        return $this->render('FacturasBundle:DireccionEmisor:index.html.twig', array(
+        return $this->render('GeneralBundle:RegimenTributario:index.html.twig', array(
             'entities' => $entities,
         ));
     }
     /**
-     * Creates a new DireccionEmisor entity.
+     * Creates a new RegimenTributario entity.
      *
      */
     public function createAction(Request $request)
     {
-        $entity = new DireccionEmisor();
+        $entity = new RegimenTributario();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -44,26 +44,26 @@ class DireccionEmisorController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('direccionemisor_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('regimentributario_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('FacturasBundle:DireccionEmisor:new.html.twig', array(
+        return $this->render('GeneralBundle:RegimenTributario:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Creates a form to create a DireccionEmisor entity.
+     * Creates a form to create a RegimenTributario entity.
      *
-     * @param DireccionEmisor $entity The entity
+     * @param RegimenTributario $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(DireccionEmisor $entity)
+    private function createCreateForm(RegimenTributario $entity)
     {
-        $form = $this->createForm(new DireccionEmisorType(), $entity, array(
-            'action' => $this->generateUrl('direccionemisor_create'),
+        $form = $this->createForm(new RegimenTributarioType(), $entity, array(
+            'action' => $this->generateUrl('regimentributario_create'),
             'method' => 'POST',
         ));
 
@@ -73,60 +73,60 @@ class DireccionEmisorController extends Controller
     }
 
     /**
-     * Displays a form to create a new DireccionEmisor entity.
+     * Displays a form to create a new RegimenTributario entity.
      *
      */
     public function newAction()
     {
-        $entity = new DireccionEmisor();
+        $entity = new RegimenTributario();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('FacturasBundle:DireccionEmisor:new.html.twig', array(
+        return $this->render('GeneralBundle:RegimenTributario:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a DireccionEmisor entity.
+     * Finds and displays a RegimenTributario entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('FacturasBundle:DireccionEmisor')->find($id);
+        $entity = $em->getRepository('GeneralBundle:RegimenTributario')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find DireccionEmisor entity.');
+            throw $this->createNotFoundException('Unable to find RegimenTributario entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('FacturasBundle:DireccionEmisor:show.html.twig', array(
+        return $this->render('GeneralBundle:RegimenTributario:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Displays a form to edit an existing DireccionEmisor entity.
+     * Displays a form to edit an existing RegimenTributario entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('FacturasBundle:DireccionEmisor')->find($id);
+        $entity = $em->getRepository('GeneralBundle:RegimenTributario')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find DireccionEmisor entity.');
+            throw $this->createNotFoundException('Unable to find RegimenTributario entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('FacturasBundle:DireccionEmisor:edit.html.twig', array(
+        return $this->render('GeneralBundle:RegimenTributario:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -134,16 +134,16 @@ class DireccionEmisorController extends Controller
     }
 
     /**
-    * Creates a form to edit a DireccionEmisor entity.
+    * Creates a form to edit a RegimenTributario entity.
     *
-    * @param DireccionEmisor $entity The entity
+    * @param RegimenTributario $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(DireccionEmisor $entity)
+    private function createEditForm(RegimenTributario $entity)
     {
-        $form = $this->createForm(new DireccionEmisorType(), $entity, array(
-            'action' => $this->generateUrl('direccionemisor_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new RegimenTributarioType(), $entity, array(
+            'action' => $this->generateUrl('regimentributario_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -152,17 +152,17 @@ class DireccionEmisorController extends Controller
         return $form;
     }
     /**
-     * Edits an existing DireccionEmisor entity.
+     * Edits an existing RegimenTributario entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('FacturasBundle:DireccionEmisor')->find($id);
+        $entity = $em->getRepository('GeneralBundle:RegimenTributario')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find DireccionEmisor entity.');
+            throw $this->createNotFoundException('Unable to find RegimenTributario entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -172,17 +172,17 @@ class DireccionEmisorController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('direccionemisor_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('regimentributario_edit', array('id' => $id)));
         }
 
-        return $this->render('FacturasBundle:DireccionEmisor:edit.html.twig', array(
+        return $this->render('GeneralBundle:RegimenTributario:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
     /**
-     * Deletes a DireccionEmisor entity.
+     * Deletes a RegimenTributario entity.
      *
      */
     public function deleteAction(Request $request, $id)
@@ -192,21 +192,21 @@ class DireccionEmisorController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('FacturasBundle:DireccionEmisor')->find($id);
+            $entity = $em->getRepository('GeneralBundle:RegimenTributario')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find DireccionEmisor entity.');
+                throw $this->createNotFoundException('Unable to find RegimenTributario entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('direccionemisor'));
+        return $this->redirect($this->generateUrl('regimentributario'));
     }
 
     /**
-     * Creates a form to delete a DireccionEmisor entity by id.
+     * Creates a form to delete a RegimenTributario entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -215,9 +215,9 @@ class DireccionEmisorController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('direccionemisor_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('regimentributario_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Eliminar', 'attr' => array('class' => 'btn btn-danger')))
+            ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
     }

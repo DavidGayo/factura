@@ -22,6 +22,9 @@ Facturas\GeneralBundle\Entity\Estado:
         municipio:
             targetEntity: Facturas\GeneralBundle\Entity\Municipio
             mappedBy: Estado
+        direccionEmisor:
+            targetEntity: Facturas\FacturasBundle\Entity\DireccionEmisor
+            mappedBy: Estado
     manyToOne:
         pais:
             targetEntity: Facturas\GeneralBundle\Entity\Pais

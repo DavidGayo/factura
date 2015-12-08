@@ -312,4 +312,91 @@ class DireccionEmisor
     {
         return $this->tipoMoneda;
     }
+    /**
+     * @var \Facturas\GeneralBundle\Entity\Pais
+     */
+    private $pais;
+
+    /**
+     * @var \Facturas\GeneralBundle\Entity\Estado
+     */
+    private $estado;
+
+    /**
+     * @var \Facturas\GeneralBundle\Entity\Municipio
+     */
+    private $municipio;
+
+
+    /**
+     * Set pais
+     *
+     * @param \Facturas\GeneralBundle\Entity\Pais $pais
+     *
+     * @return DireccionEmisor
+     */
+    public function setPais(\Facturas\GeneralBundle\Entity\Pais $pais = null)
+    {
+        $this->pais = $pais;
+
+        return $this;
+    }
+
+    /**
+     * Get pais
+     *
+     * @return \Facturas\GeneralBundle\Entity\Pais
+     */
+    public function getPais()
+    {
+        return $this->pais;
+    }
+
+    /**
+     * Set estado
+     *
+     * @param \Facturas\GeneralBundle\Entity\Estado $estado
+     *
+     * @return DireccionEmisor
+     */
+    public function setEstado(\Facturas\GeneralBundle\Entity\Estado $estado = null)
+    {
+        $this->estado = $estado;
+
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return \Facturas\GeneralBundle\Entity\Estado
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * Set municipio
+     *
+     * @param \Facturas\GeneralBundle\Entity\Municipio $municipio
+     *
+     * @return DireccionEmisor
+     */
+    public function setMunicipio(\Facturas\GeneralBundle\Entity\Municipio $municipio = null)
+    {
+        $this->municipio = $municipio;
+
+        return $this;
+    }
+
+    /**
+     * Get municipio
+     *
+     * @return \Facturas\GeneralBundle\Entity\Municipio
+     */
+    public function getMunicipio()
+    {
+        return $this->municipio;
+    }
 }

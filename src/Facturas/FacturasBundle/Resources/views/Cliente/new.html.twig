@@ -1,15 +1,166 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Cliente creation</h1>
+<div class="panel">
+	<div class="panel-heading">
+		<span class="panel-title">Nuevo Cliente</span>
+	</div>
+	<div class="panel-body">
+		{{ form_start(form) }}
+			{{ form_errors(form) }}
 
-    {{ form(form) }}
+	   				<div class="form-group">
+	   					<div class="row">
+						<label class="col-lg-3 control-label">Razon Social</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.razonSocial) }}
+							{{ form_widget(form.razonSocial, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+					<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">RFC</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.rfc) }}
+							{{ form_widget(form.rfc, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Alias</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.alias) }}
+							{{ form_widget(form.alias, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Telefono</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.telefono) }}
+							{{ form_widget(form.telefono, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Email</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.email) }}
+							{{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Regimen Tributario</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.regimenTributario) }}
+							{{ form_widget(form.regimenTributario, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Moneda</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.tipoMoneda) }}
+							{{ form_widget(form.tipoMoneda, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+					<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Calle</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.calle) }}
+							{{ form_widget(form.calle, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+					<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Numero Ext</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.numeroExt) }}
+							{{ form_widget(form.numeroExt, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Numero Int</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.numeroInt) }}
+							{{ form_widget(form.numeroInt, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Colonia</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.colonia) }}
+							{{ form_widget(form.colonia, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Codigo Postal</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.codigoPostal) }}
+							{{ form_widget(form.codigoPostal, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Localidad</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.localidad) }}
+							{{ form_widget(form.localidad, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Pais</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.pais) }}
+							{{ form_widget(form.pais, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Estado</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.estado) }}
+							{{ form_widget(form.estado, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Municipio</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.municipio) }}
+							{{ form_widget(form.municipio, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('cliente') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+			{{ form_widget(form._token) }}
+			
+			<div class="col-xs-12">
+				<button class="btn btn-success" type="submit" id="sendform"><i class="fa fa-plus"></i>&nbsp;Crear</button>
+				<a class="btn btn-warning" href="{{ path('cliente') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a>
+			</div>
+
+		</form>
+	</div>
+</div>
 {% endblock %}

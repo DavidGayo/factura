@@ -97,4 +97,9 @@ class RegimenFiscal
     {
         return $this->emisor;
     }
+
+    public function __toString()
+    {
+        return $this->regimenFiscal;
+    }
 }

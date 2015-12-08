@@ -19,6 +19,9 @@ Facturas\GeneralBundle\Entity\Municipio:
         direccionCliente:
             targetEntity: Facturas\GeneralBundle\Entity\Municipio
             mappedBy: Municipio
+        direccionEmisor:
+            targetEntity: Facturas\FacturasBundle\Entity\DireccionEmisor
+            mappedBy: Municipio
     manyToOne:
         estado:
             targetEntity: Facturas\GeneralBundle\Entity\Estado

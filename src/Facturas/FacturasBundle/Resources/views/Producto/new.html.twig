@@ -1,15 +1,86 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Producto creation</h1>
+ <div class="panel">
+	<div class="panel-heading">
+		<span class="panel-title">Nuevo Producto</span>
+	</div>
+	<div class="panel-body">
+		{{ form_start(form) }}
+			{{ form_errors(form) }}
 
-    {{ form(form) }}
+	   				<div class="form-group">
+	   					<div class="row">
+						<label class="col-lg-3 control-label">Codigo de Barras</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.codigoBarras) }}
+							{{ form_widget(form.codigoBarras, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+	   					<div class="row">
+						<label class="col-lg-3 control-label">Clave</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.clave) }}
+							{{ form_widget(form.clave, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+	   					<div class="row">
+						<label class="col-lg-3 control-label">Marca</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.marca) }}
+							{{ form_widget(form.marca, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+	   					<div class="row">
+						<label class="col-lg-3 control-label">Unidad de Medida</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.unidadMedida) }}
+							{{ form_widget(form.unidadMedida, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+	   					<div class="row">
+						<label class="col-lg-3 control-label">Precio Unitario</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.precioUnitario) }}
+							{{ form_widget(form.precioUnitario, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+	   					<div class="row">
+						<label class="col-lg-3 control-label">Modelo</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.modelo) }}
+							{{ form_widget(form.modelo, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+	   					<div class="row">
+						<label class="col-lg-3 control-label">Tipo Producto</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.tipoProducto) }}
+							{{ form_widget(form.tipoProducto, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('producto') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+				{{ form_widget(form._token) }}
+			
+			<div class="col-xs-12">
+				<button class="btn btn-success" type="submit" id="sendform"><i class="fa fa-plus"></i>&nbsp;Crear</button>
+				<a class="btn btn-warning" href="{{ path('producto') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a>
+			</div>
+
+		</form>
+	</div>
+</div>
 {% endblock %}

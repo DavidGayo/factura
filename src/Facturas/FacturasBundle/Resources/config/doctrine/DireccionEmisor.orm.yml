@@ -47,4 +47,22 @@ Facturas\FacturasBundle\Entity\DireccionEmisor:
             joinColumn:
                 name: tipoMoneda_id
                 referencedColumnName: id
+        pais:
+            targetEntity: Facturas\GeneralBundle\Entity\Pais
+            inversedBy: direccionEmisor
+            joinColumn:
+                name: pais_id
+                referencedColumnName: id
+        estado:
+            targetEntity: Facturas\GeneralBundle\Entity\Estado
+            inversedBy: direccionEmisor
+            joinColumn:
+                name: estado_id
+                referencedColumnName: id
+        municipio:
+            targetEntity: Facturas\GeneralBundle\Entity\Municipio
+            inversedBy: direccionEmisor
+            joinColumn:
+                name: municipio_id
+                referencedColumnName: id
     lifecycleCallbacks: {  }

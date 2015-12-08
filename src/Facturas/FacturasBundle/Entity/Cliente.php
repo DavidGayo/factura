@@ -572,4 +572,9 @@ class Cliente
     {
         return $this->municipio;
     }
+
+    public function __toString()
+    {
+        return $this->razonSocial;
+    }
 }

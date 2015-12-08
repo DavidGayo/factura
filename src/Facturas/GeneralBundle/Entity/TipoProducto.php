@@ -97,4 +97,9 @@ class TipoProducto
     {
         return $this->producto;
     }
+
+    public function __toString()
+    {
+        return $this->tipoProducto;
+    }
 }
