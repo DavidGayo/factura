@@ -9,9 +9,6 @@ Facturas\FacturasBundle\Entity\DireccionCliente:
             generator:
                 strategy: AUTO
     fields:
-        alias:
-            type: string
-            length: '20'
         calle:
             type: string
             length: '50'
@@ -29,12 +26,6 @@ Facturas\FacturasBundle\Entity\DireccionCliente:
             length: '50'
         codigoPostal:
             type: integer
-        telefono:
-            type: string
-            length: '15'
-        email:
-            type: string
-            length: 255
     manyToOne:
         cliente:
             targetEntity: Facturas\FacturasBundle\Entity\Cliente

@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Facturas\FacturasBundle\Entity\Cliente;
 use Facturas\FacturasBundle\Form\ClienteType;
 
+
 /**
  * Cliente controller.
  *
@@ -23,7 +24,10 @@ class ClienteController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('FacturasBundle:Cliente')->findAll();
+        //$entities = $em->getRepository('FacturasBundle:Cliente')->findAll();
+
+        $query = $em -> createQuery('SELECT c, dc FROM FacturasBundle:DireccionCliente dc LEFT JOIN dc.cliente c WHERE c.id = dc.cliente');
+        $entities = $query -> getResult();
 
         return $this->render('FacturasBundle:Cliente:index.html.twig', array(
             'entities' => $entities,

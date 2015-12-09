@@ -26,6 +26,9 @@ Facturas\FacturasBundle\Entity\Producto:
         modelo:
             type: string
             length: '15'
+        descripcion:
+            type: string
+            length: '255'
     manyToOne:
         tipoProducto:
             targetEntity: Facturas\GeneralBundle\Entity\TipoProducto

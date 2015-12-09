@@ -15,15 +15,12 @@ class DireccionClienteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('alias')
             ->add('calle')
             ->add('numeroExt')
             ->add('numeroInt')
             ->add('colonia')
             ->add('localidad')
             ->add('codigoPostal')
-            ->add('telefono')
-            ->add('email')
             ->add('cliente')
             ->add('pais')
             ->add('estado')

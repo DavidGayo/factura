@@ -65,6 +65,15 @@
 				</div>
 				<div class="form-group">
 	   					<div class="row">
+						<label class="col-lg-3 control-label">Descripción</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(edit_form.descripcion) }}
+							{{ form_widget(edit_form.descripcion, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+	   					<div class="row">
 						<label class="col-lg-3 control-label">Tipo Producto</label>
 						<div class="col-lg-5 mb10">
 							{{ form_errors(edit_form.tipoProducto) }}

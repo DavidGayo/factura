@@ -21,6 +21,7 @@ class ProductoType extends AbstractType
             ->add('unidadMedida')
             ->add('precioUnitario')
             ->add('modelo')
+            ->add('descripcion')
             ->add('tipoProducto')
         ;
     }

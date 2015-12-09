@@ -16,21 +16,11 @@ class ClienteType extends AbstractType
     {
         $builder
             ->add('razonSocial')
-            ->add('calle')
-            ->add('numeroExt')
-            ->add('numeroInt')
-            ->add('colonia')
             ->add('rfc')
-            ->add('codigoPostal')
             ->add('telefono')
-            ->add('localidad')
             ->add('alias')
             ->add('email')
             ->add('regimenTributario')
-            ->add('tipoMoneda')
-            ->add('pais')
-            ->add('estado')
-            ->add('municipio')
         ;
     }
     

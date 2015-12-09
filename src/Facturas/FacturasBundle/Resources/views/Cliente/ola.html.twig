@@ -1,0 +1,9 @@
+{% block body %}
+
+ {% for entity in cliente %}
+
+ <h1>{{ entity.id }}</h1>
+
+ {% endfor %}
+<pre>{{dump(cliente)}}</pre>
+{% endblock %}

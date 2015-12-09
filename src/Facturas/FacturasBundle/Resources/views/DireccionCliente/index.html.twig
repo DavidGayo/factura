@@ -14,30 +14,26 @@
         <thead>
            <thead>
             <tr>
-                <th>Alias</th>
+                <th>Cliente</th>
                 <th>Calle</th>
                 <th>Numeroext</th>
                 <th>Numeroint</th>
                 <th>Colonia</th>
                 <th>Localidad</th>
                 <th>Codigopostal</th>
-                <th>Telefono</th>
-                <th>Email</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('direccioncliente_show', { 'id': entity.id }) }}">{{ entity.alias }}</a></td>
+                <td><a href="{{ path('direccioncliente_show', { 'id': entity.id }) }}">{{ entity.cliente }}</a></td>
                 <td>{{ entity.calle }}</td>
                 <td>{{ entity.numeroExt }}</td>
                 <td>{{ entity.numeroInt }}</td>
                 <td>{{ entity.colonia }}</td>
                 <td>{{ entity.localidad }}</td>
                 <td>{{ entity.codigoPostal }}</td>
-                <td>{{ entity.telefono }}</td>
-                <td>{{ entity.email }}</td>
                 <td>
                         <a href="{{ path('direccioncliente_show', { 'id': entity.id }) }}" class="btn btn-default"><i class="fa fa-eye"></i>&nbsp;Ver</a>
                   

@@ -15,11 +15,11 @@
             <table class="records_list table table-bordered mbn">
         <thead>
             <tr>
-                <th>Codigo de barras</th>
                 <th>Clave</th>
-                <th>Marca</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
                 <th>Unidad de medida</th>
-                <th>Precio unitario</th>
+                <th>Precio</th>
                 <th>Modelo</th>
                 <th>Acciones</th>
             </tr>
@@ -27,9 +27,9 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('producto_show', { 'id': entity.id }) }}">{{ entity.codigoBarras }}</a></td>
-                <td>{{ entity.clave }}</td>
-                <td>{{ entity.marca }}</td>
+                <td><a href="{{ path('producto_show', { 'id': entity.id }) }}">{{ entity.clave }}</a></td>
+                <td>{{ entity.tipoProducto }}</td>
+                <td>{{ entity.descripcion }}</td>
                 <td>{{ entity.unidadMedida }}</td>
                 <td>{{ entity.precioUnitario }}</td>
                 <td>{{ entity.modelo }}</td>

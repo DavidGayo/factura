@@ -42,6 +42,11 @@ class Producto
      */
     private $modelo;
 
+    /**
+     * @var string
+     */
+    private $descripcion;
+
 
     /**
      * Get id
@@ -195,6 +200,30 @@ class Producto
     public function getModelo()
     {
         return $this->modelo;
+    }
+
+    /**
+     * Set descripcion
+     *
+     * @param string $descripcion
+     *
+     * @return Producto
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get descripcion
+     *
+     * @return string
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
     }
     /**
      * @var \Facturas\GeneralBundle\Entity\TipoProducto

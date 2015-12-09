@@ -97,4 +97,9 @@ class RegimenTributario
     {
         return $this->cliente;
     }
+
+    public function __toString()
+    {
+        return $this->regimenTributario;
+    }
 }

@@ -28,3 +28,7 @@ direccioncliente_delete:
     path:     /{id}/delete
     defaults: { _controller: "FacturasBundle:DireccionCliente:delete" }
     methods:  [POST, DELETE]
+
+direccioncliente_add:
+    path:     /add/{id}
+    defaults: { _controller: "FacturasBundle:DireccionCliente:add" }
