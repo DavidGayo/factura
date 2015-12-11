@@ -7,6 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Facturas\FacturasBundle\Entity\DireccionCliente;
 use Facturas\FacturasBundle\Form\DireccionClienteType;
+use Facturas\FacturasBundle\Entity\Cliente;
+use Facturas\FacturasBundle\Form\ClienteType;
+
 
 /**
  * DireccionCliente controller.
@@ -84,6 +87,34 @@ class DireccionClienteController extends Controller
         return $this->render('FacturasBundle:DireccionCliente:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
+        ));
+    }
+
+    public function addAction(Request $request,$id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $cliente = $em -> getRepository('FacturasBundle:Cliente')->find($id);
+        $editForm = $this->createForm(new ClienteType(),$cliente);
+
+        $entity = new DireccionCliente();
+        $form = $this->createForm(new DireccionClienteType(),$entity);
+        $form->handleRequest($request);
+
+        if ($form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $entity->setCliente($cliente);
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('cliente'));
+
+        }
+
+        return $this->render('FacturasBundle:Cliente:ola.html.twig', array(
+             'form'   => $form->createView(),
+             'edit_form'   => $editForm->createView(),
         ));
     }
 
