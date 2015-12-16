@@ -21,7 +21,7 @@ class DireccionClienteType extends AbstractType
             ->add('colonia')
             ->add('localidad')
             ->add('codigoPostal')
-            ->add('cliente')
+            ->add('cliente',new ClienteType())
             ->add('pais')
             ->add('estado')
             ->add('municipio')

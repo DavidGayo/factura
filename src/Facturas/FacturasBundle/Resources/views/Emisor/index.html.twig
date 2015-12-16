@@ -7,11 +7,7 @@
         <span class="panel-title">Emisor</span>
     </div>
     <div class="panel-body">
-        <a id="new" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;Nuevo</a>
-        <div id="nuevo"> 
-
-        </div>
-
+        <a href="{{ path('emisor_new') }}" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;Nuevo</a>
         <div class="table-responsive mt15">
             <table class="records_list table table-bordered mbn">
         <thead>
@@ -41,18 +37,3 @@
 
        
     {% endblock %}
-
-    {% block js %}
-    <script>
-
-    $(document).ready(function(){
-
-       $('#new').click(function(event){
-            event.preventDefault();
-            $('#nuevo').load("{{path ('emisor_new')}}");
-        });
-    });
-
-    </script>
-
-    {% endblock js%}

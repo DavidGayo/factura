@@ -36,8 +36,10 @@ Facturas\FacturasBundle\Entity\Contacto:
     manyToOne:
         cliente:
             targetEntity: Facturas\FacturasBundle\Entity\Cliente
+            cascade: [persist]
             inversedBy: contacto
             joinColumn: 
                 name: cliente_id
                 referencedColumnName: id
+                onDelete: CASCADE
     lifecycleCallbacks: {  }
