@@ -221,7 +221,7 @@ class ClienteController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('cliente_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Eliminar', 'attr' => array('class' => 'btn btn-danger')))
+            ->add('submit', 'submit', array('label' => ' Eliminar', 'attr' => array('class' => 'btn btn-danger fa fa-times')))
             ->getForm()
         ;
     }
