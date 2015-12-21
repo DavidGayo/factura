@@ -1,15 +1,81 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Email creation</h1>
+    <div class="panel panel-default">
+    	<div class="panel-heading">
+            <span class="panel-title">Nuevo E-mail</span>    
+    	</div>
 
-    {{ form(form) }}
+    	<div class="panel-body">
+    		{{ form_start(form) }}
+    		{{ form_errors(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('email') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+    		<div class="form-group">
+                <div class="row">
+                	<label class="col-lg-3 control-label">Usuario</label>
+                	<div class="col-lg-5 mb10">
+                		{{ form_errors(form.usuario) }}
+                		{{ form_widget(form.usuario, {'attr': {'class': 'form-control'}}) }}
+                	</div>	
+                </div>
+    		</div>
+
+    		<div class="form-group">
+    			<div class="row">
+    				<label class="col-lg-3 control-label">Contraseña</label>
+    				<div class="col-lg-5 mb10">    					
+                		{{ form_widget(form.contrasena.first, {'attr': {'class': 'form-control'}}) }}
+    			    </div>
+    		    </div>
+    		</div> 
+
+    		<div class="form-group">
+    			<div class="row">
+    				<label class="col-lg-3 control-label">Confirmar contraseña</label>
+    				<div class="col-lg-5 mb10">    					
+                		{{ form_widget(form.contrasena.second, {'attr': {'class': 'form-control'}}) }}
+                		{{ form_errors(form.contrasena) }}
+    			    </div>
+    		    </div>
+    		</div> 
+    		
+    		<div class="form-group">
+    			<div class="row">
+    				<label class="col-lg-3 control-label">Protocolo</label>
+    				<div class="col-lg-5 mb10">
+    					{{ form_errors(form.protocolo) }}
+                		{{ form_widget(form.protocolo, {'attr': {'class': 'form-control'}}) }}
+    			    </div>
+    		    </div>
+    		</div>  
+
+    		<div class="form-group">
+    			<div class="row">
+    				<label class="col-lg-3 control-label">Host</label>
+    				<div class="col-lg-5 mb10">
+    					{{ form_errors(form.host) }}
+                		{{ form_widget(form.host, {'attr': {'class': 'form-control'}}) }}
+    			    </div>
+    		    </div>
+    		</div>    
+
+    		<div class="form-group">
+    			<div class="row">
+    				<label class="col-lg-3 control-label">Puerto</label>
+    				<div class="col-lg-5 mb10">
+    					{{ form_errors(form.puerto) }}
+                		{{ form_widget(form.puerto, {'attr': {'class': 'form-control'}}) }}
+    			    </div>
+    		    </div>
+    		</div>         
+
+    		{{ form_widget(form._token) }}
+
+    		<div class="col-xs-12">
+				<button class="btn btn-success" type="submit" id="sendform"><i class="fa fa-plus"></i>&nbsp;Crear</button>
+				<a class="btn btn-warning" href="{{ path('email') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a>
+			</div>
+		    </form>
+        </div>
+    </div>
 {% endblock %}

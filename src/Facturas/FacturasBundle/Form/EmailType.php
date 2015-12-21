@@ -18,7 +18,7 @@ class EmailType extends AbstractType
             ->add('usuario')
             ->add('contrasena','repeated',array(
                 'type' => 'password',
-                'ivanlid_message' => 'Los password no coinciden.',
+                'invalid_message' => 'Los password no coinciden.',
                 'options' => array('attr'=> array('class' => 'input-xlarge', 'minlength' => 8)),
                 'required' => true,
                 'first_options' => array('label' => 'Contraseña'),
