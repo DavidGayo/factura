@@ -1,0 +1,26 @@
+Facturas\FacturasBundle\Entity\Email:
+    type: entity
+    table: null
+    repositoryClass: Facturas\FacturasBundle\Entity\EmailRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        usuario:
+            type: string
+            length: '120'
+        contrasena:
+            type: string
+            length: '125'
+        protocolo:
+            type: string
+            length: '50'
+        host:
+            type: string
+            length: 255
+        puerto:
+            type: integer
+    lifecycleCallbacks: {  }

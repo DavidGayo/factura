@@ -1,0 +1,30 @@
+email:
+    path:     /
+    defaults: { _controller: "FacturasBundle:Email:index" }
+
+email_show:
+    path:     /{id}/show
+    defaults: { _controller: "FacturasBundle:Email:show" }
+
+email_new:
+    path:     /new
+    defaults: { _controller: "FacturasBundle:Email:new" }
+
+email_create:
+    path:     /create
+    defaults: { _controller: "FacturasBundle:Email:create" }
+    methods:  POST
+
+email_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FacturasBundle:Email:edit" }
+
+email_update:
+    path:     /{id}/update
+    defaults: { _controller: "FacturasBundle:Email:update" }
+    methods:  [POST, PUT]
+
+email_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FacturasBundle:Email:delete" }
+    methods:  [POST, DELETE]
