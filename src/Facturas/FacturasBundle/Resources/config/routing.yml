@@ -1,3 +1,7 @@
+facturas_folio:
+    resource: "@FacturasBundle/Resources/config/routing/folio.yml"
+    prefix:   /folio
+
 facturas_email:
     resource: "@FacturasBundle/Resources/config/routing/email.yml"
     prefix:   /email
