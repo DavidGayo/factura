@@ -287,4 +287,33 @@ class Cliente
     {
         return $this->razonSocial;
     }
+    /**
+     * @var \Facturas\GeneralBundle\Entity\Moneda
+     */
+    private $Moneda;
+
+
+    /**
+     * Set moneda
+     *
+     * @param \Facturas\GeneralBundle\Entity\Moneda $moneda
+     *
+     * @return Cliente
+     */
+    public function setMoneda(\Facturas\GeneralBundle\Entity\Moneda $moneda = null)
+    {
+        $this->Moneda = $moneda;
+
+        return $this;
+    }
+
+    /**
+     * Get moneda
+     *
+     * @return \Facturas\GeneralBundle\Entity\Moneda
+     */
+    public function getMoneda()
+    {
+        return $this->Moneda;
+    }
 }
