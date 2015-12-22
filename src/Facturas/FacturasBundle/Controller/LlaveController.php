@@ -4,69 +4,66 @@ namespace Facturas\FacturasBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-use Facturas\FacturasBundle\Entity\Folio;
-use Facturas\FacturasBundle\Form\FolioType;
+use Facturas\FacturasBundle\Entity\Llave;
+use Facturas\FacturasBundle\Form\LlaveType;
 
 /**
- * Folio controller.
+ * Llave controller.
  *
  */
-class FolioController extends Controller
+class LlaveController extends Controller
 {
 
     /**
-     * Lists all Folio entities.
+     * Lists all Llave entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('FacturasBundle:Folio')->findAll();
+        $entities = $em->getRepository('FacturasBundle:Llave')->findAll();
 
-        return $this->render('FacturasBundle:Folio:index.html.twig', array(
+        return $this->render('FacturasBundle:Llave:index.html.twig', array(
             'entities' => $entities,
         ));
     }
     /**
-     * Creates a new Folio entity.
+     * Creates a new Llave entity.
      *
      */
     public function createAction(Request $request)
     {
-        $entity = new Folio();
+        $entity = new Llave();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity->getLlave()->upload();
-            $entity->getCertificado()->upload();
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('folio_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('llave_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('FacturasBundle:Folio:new.html.twig', array(
+        return $this->render('FacturasBundle:Llave:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Creates a form to create a Folio entity.
+     * Creates a form to create a Llave entity.
      *
-     * @param Folio $entity The entity
+     * @param Llave $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Folio $entity)
+    private function createCreateForm(Llave $entity)
     {
-        $form = $this->createForm(new FolioType(), $entity, array(
-            'action' => $this->generateUrl('folio_create'),
+        $form = $this->createForm(new LlaveType(), $entity, array(
+            'action' => $this->generateUrl('llave_create'),
             'method' => 'POST',
         ));
 
@@ -76,60 +73,60 @@ class FolioController extends Controller
     }
 
     /**
-     * Displays a form to create a new Folio entity.
+     * Displays a form to create a new Llave entity.
      *
      */
     public function newAction()
     {
-        $entity = new Folio();
+        $entity = new Llave();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('FacturasBundle:Folio:new.html.twig', array(
+        return $this->render('FacturasBundle:Llave:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a Folio entity.
+     * Finds and displays a Llave entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('FacturasBundle:Folio')->find($id);
+        $entity = $em->getRepository('FacturasBundle:Llave')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Folio entity.');
+            throw $this->createNotFoundException('Unable to find Llave entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('FacturasBundle:Folio:show.html.twig', array(
+        return $this->render('FacturasBundle:Llave:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Displays a form to edit an existing Folio entity.
+     * Displays a form to edit an existing Llave entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('FacturasBundle:Folio')->find($id);
+        $entity = $em->getRepository('FacturasBundle:Llave')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Folio entity.');
+            throw $this->createNotFoundException('Unable to find Llave entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('FacturasBundle:Folio:edit.html.twig', array(
+        return $this->render('FacturasBundle:Llave:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -137,16 +134,16 @@ class FolioController extends Controller
     }
 
     /**
-    * Creates a form to edit a Folio entity.
+    * Creates a form to edit a Llave entity.
     *
-    * @param Folio $entity The entity
+    * @param Llave $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Folio $entity)
+    private function createEditForm(Llave $entity)
     {
-        $form = $this->createForm(new FolioType(), $entity, array(
-            'action' => $this->generateUrl('folio_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new LlaveType(), $entity, array(
+            'action' => $this->generateUrl('llave_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -155,17 +152,17 @@ class FolioController extends Controller
         return $form;
     }
     /**
-     * Edits an existing Folio entity.
+     * Edits an existing Llave entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('FacturasBundle:Folio')->find($id);
+        $entity = $em->getRepository('FacturasBundle:Llave')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Folio entity.');
+            throw $this->createNotFoundException('Unable to find Llave entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -175,17 +172,17 @@ class FolioController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('folio_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('llave_edit', array('id' => $id)));
         }
 
-        return $this->render('FacturasBundle:Folio:edit.html.twig', array(
+        return $this->render('FacturasBundle:Llave:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
     /**
-     * Deletes a Folio entity.
+     * Deletes a Llave entity.
      *
      */
     public function deleteAction(Request $request, $id)
@@ -195,21 +192,21 @@ class FolioController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('FacturasBundle:Folio')->find($id);
+            $entity = $em->getRepository('FacturasBundle:Llave')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Folio entity.');
+                throw $this->createNotFoundException('Unable to find Llave entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('folio'));
+        return $this->redirect($this->generateUrl('llave'));
     }
 
     /**
-     * Creates a form to delete a Folio entity by id.
+     * Creates a form to delete a Llave entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -218,7 +215,7 @@ class FolioController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('folio_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('llave_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

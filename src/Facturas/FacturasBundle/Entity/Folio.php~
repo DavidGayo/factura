@@ -47,7 +47,6 @@ class Folio
      */
     private $modelo;
 
-
     /**
      * Get id
      *
@@ -224,5 +223,64 @@ class Folio
     public function getModelo()
     {
         return $this->modelo;
+    }
+
+    /**
+     * @var \Facturas\FacturasBundle\Entity\Llave
+     */
+    private $llave;
+
+    /**
+     * @var \Facturas\FacturasBundle\Entity\Certificado
+     */
+    private $certificado;
+
+
+    /**
+     * Set llave
+     *
+     * @param \Facturas\FacturasBundle\Entity\Llave $llave
+     *
+     * @return Folio
+     */
+    public function setLlave(\Facturas\FacturasBundle\Entity\Llave $llave = null)
+    {
+        $this->llave = $llave;
+
+        return $this;
+    }
+
+    /**
+     * Get llave
+     *
+     * @return \Facturas\FacturasBundle\Entity\Llave
+     */
+    public function getLlave()
+    {
+        return $this->llave;
+    }
+
+    /**
+     * Set certificado
+     *
+     * @param \Facturas\FacturasBundle\Entity\Certificado $certificado
+     *
+     * @return Folio
+     */
+    public function setCertificado(\Facturas\FacturasBundle\Entity\Certificado $certificado = null)
+    {
+        $this->certificado = $certificado;
+
+        return $this;
+    }
+
+    /**
+     * Get certificado
+     *
+     * @return \Facturas\FacturasBundle\Entity\Certificado
+     */
+    public function getCertificado()
+    {
+        return $this->certificado;
     }
 }

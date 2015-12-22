@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class FolioType extends AbstractType
+class LlaveType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,15 +15,15 @@ class FolioType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('serie')
-            ->add('folioInicial')
-            ->add('folioFinal')
-            ->add('tipoDocumento')
-            ->add('lugarExpedicion')
-            ->add('precioUnitario')
-            ->add('modelo')
-            ->add('llave', new LlaveType())
-            ->add('certificado', new CertificadoType())
+            ->add('llave','file', array(
+                'attr'=> array('id' => 'file-1',
+                                'class' => 'file',
+                                'data-overwrite-initial' => 'false',
+                                'data-min-file-count' => '1' ),
+                'data_class' => null,
+                'property_path' => 'llave',
+                'required' => false,
+                ))
         ;
     }
     
@@ -33,7 +33,7 @@ class FolioType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Facturas\FacturasBundle\Entity\Folio'
+            'data_class' => 'Facturas\FacturasBundle\Entity\Llave'
         ));
     }
 
@@ -42,6 +42,6 @@ class FolioType extends AbstractType
      */
     public function getName()
     {
-        return 'facturas_facturasbundle_folio';
+        return 'facturas_facturasbundle_llave';
     }
 }

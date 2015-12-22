@@ -1,0 +1,30 @@
+certificado:
+    path:     /
+    defaults: { _controller: "FacturasBundle:Certificado:index" }
+
+certificado_show:
+    path:     /{id}/show
+    defaults: { _controller: "FacturasBundle:Certificado:show" }
+
+certificado_new:
+    path:     /new
+    defaults: { _controller: "FacturasBundle:Certificado:new" }
+
+certificado_create:
+    path:     /create
+    defaults: { _controller: "FacturasBundle:Certificado:create" }
+    methods:  POST
+
+certificado_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FacturasBundle:Certificado:edit" }
+
+certificado_update:
+    path:     /{id}/update
+    defaults: { _controller: "FacturasBundle:Certificado:update" }
+    methods:  [POST, PUT]
+
+certificado_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FacturasBundle:Certificado:delete" }
+    methods:  [POST, DELETE]

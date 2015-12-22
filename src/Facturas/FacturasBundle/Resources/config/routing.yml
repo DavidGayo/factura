@@ -1,3 +1,11 @@
+facturas_certificado:
+    resource: "@FacturasBundle/Resources/config/routing/certificado.yml"
+    prefix:   /certificado
+
+facturas_llave:
+    resource: "@FacturasBundle/Resources/config/routing/llave.yml"
+    prefix:   /llave
+
 facturas_folio:
     resource: "@FacturasBundle/Resources/config/routing/folio.yml"
     prefix:   /folio
