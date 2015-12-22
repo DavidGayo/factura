@@ -48,7 +48,7 @@ class DireccionClienteController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('direccioncliente_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('cliente'));
         }
 
         return $this->render('FacturasBundle:DireccionCliente:new.html.twig', array(

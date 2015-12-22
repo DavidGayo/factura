@@ -67,6 +67,16 @@
         </div>
     </div>
 </div>
+<div class="form-group">
+                        <div class="row">
+        <div class="col-xs-12 col-lg-2">
+            <p><b>Moneda:</b> </p>
+        </div>
+        <div>
+            {{ entity.moneda }}
+        </div>
+    </div>
+</div>
 
 </div>
         
@@ -74,7 +84,7 @@
 
  <div class="panel-footer">
         <div class="inline">
-            <a href="{{ path('cliente_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
+            <a href="{{ path('direccioncliente_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
             <a class="btn btn-warning" href="{{ path('cliente') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a><br /><br />
              {{ form(delete_form) }}
         </div>
