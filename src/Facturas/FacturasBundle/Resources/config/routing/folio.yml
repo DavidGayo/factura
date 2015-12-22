@@ -1,0 +1,30 @@
+folio:
+    path:     /
+    defaults: { _controller: "FacturasBundle:Folio:index" }
+
+folio_show:
+    path:     /{id}/show
+    defaults: { _controller: "FacturasBundle:Folio:show" }
+
+folio_new:
+    path:     /new
+    defaults: { _controller: "FacturasBundle:Folio:new" }
+
+folio_create:
+    path:     /create
+    defaults: { _controller: "FacturasBundle:Folio:create" }
+    methods:  POST
+
+folio_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FacturasBundle:Folio:edit" }
+
+folio_update:
+    path:     /{id}/update
+    defaults: { _controller: "FacturasBundle:Folio:update" }
+    methods:  [POST, PUT]
+
+folio_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FacturasBundle:Folio:delete" }
+    methods:  [POST, DELETE]
