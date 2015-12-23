@@ -1,15 +1,104 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Folio creation</h1>
+<div class="panel panel-default">
+	<div class="panel-heading">
+        <span class="panel-title">Nuevo folio</span>
+	</div>
 
-    {{ form(form) }}
+	<div class="panel-body">
+		{{ form_start(form) }}
+		{{ form_errors(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('folio') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+		    <div class="form-group">
+		    	<div class="row">
+                    <label class="col-lg-3 control-label">Serie</label>
+                    <div class="col-lg-5 mb10">
+                        {{ form_errors(form.serie) }}
+                        {{ form_widget(form.serie, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+		    	</div>
+		    </div>
+		    <div class="form-group">
+		    	<div class="row">
+                    <label class="col-lg-3 control-label">Folio inicial</label>
+                    <div class="col-lg-5 mb10">
+                        {{ form_errors(form.folioInicial) }}
+                        {{ form_widget(form.folioInicial, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+		    	</div>
+		    </div>
+
+		    <div class="form-group">
+		    	<div class="row">
+                    <label class="col-lg-3 control-label">Folio final</label>
+                    <div class="col-lg-5 mb10">
+                        {{ form_errors(form.folioFinal) }}
+                        {{ form_widget(form.folioFinal, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+		    	</div>
+		    </div>
+		    <div class="form-group">
+		    	<div class="row">
+                    <label class="col-lg-3 control-label">Tipo documento</label>
+                    <div class="col-lg-5 mb10">
+                        {{ form_errors(form.tipoDocumento) }}
+                        {{ form_widget(form.tipoDocumento, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+		    	</div>
+		    </div>
+		    <div class="form-group">
+		    	<div class="row">
+                    <label class="col-lg-3 control-label">Lugar expedicion</label>
+                    <div class="col-lg-5 mb10">
+                        {{ form_errors(form.lugarExpedicion) }}
+                        {{ form_widget(form.lugarExpedicion, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+		    	</div>
+		    </div>
+		    <div class="form-group">
+		    	<div class="row">
+                    <label class="col-lg-3 control-label">Precio unitario</label>
+                    <div class="col-lg-5 mb10">
+                        {{ form_errors(form.precioUnitario) }}
+                        {{ form_widget(form.precioUnitario, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+		    	</div>
+		    </div>
+		    <div class="form-group">
+		    	<div class="row">
+                    <label class="col-lg-3 control-label">Modelo</label>
+                    <div class="col-lg-5 mb10">
+                        {{ form_errors(form.modelo) }}
+                        {{ form_widget(form.modelo, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+		    	</div>
+		    </div>
+		    <div class="form-group">
+				<div class="row">
+					
+					<div class="col-lg-5 mb10">
+						{{ form_errors(form.llave) }}
+						{{ form_widget(form.llave) }}
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-lg-5 mb10">
+						{{ form_errors(form.certificado) }}
+						{{ form_widget(form.certificado) }}
+					</div>
+				</div>
+			</div>
+
+		{{ form_widget(form._token) }}
+
+		<div class="col-xs-12">
+				<button class="btn btn-success" type="submit" id="sendform"><i class="fa fa-plus"></i>&nbsp;Crear</button>
+				<a class="btn btn-warning" href="{{ path('folio') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a>
+			</div>
+		</form>
+        </div>
+    </div>
 {% endblock %}

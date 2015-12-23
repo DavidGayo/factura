@@ -1,53 +1,47 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Folio list</h1>
-
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Serie</th>
-                <th>Folioinicial</th>
-                <th>Foliofinal</th>
-                <th>Tipodocumento</th>
-                <th>Lugarexpedicion</th>
-                <th>Preciounitario</th>
-                <th>Modelo</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('folio_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.serie }}</td>
-                <td>{{ entity.folioInicial }}</td>
-                <td>{{ entity.folioFinal }}</td>
-                <td>{{ entity.tipoDocumento }}</td>
-                <td>{{ entity.lugarExpedicion }}</td>
-                <td>{{ entity.precioUnitario }}</td>
-                <td>{{ entity.modelo }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('folio_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('folio_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('folio_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="panel-title">Folio</span>
+        </div>
+        
+        <div class="panel-body">
+            <a href="{{ path('folio_new') }}" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;Nuevo</a>
+            <div class="table-responsive mt15">
+                <table class="records_list table table-bordered mbn">
+                    <thead>
+                        <tr>               
+                            <th>Serie</th>
+                            <th>Folio inicial</th>
+                            <th>Folio final</th>
+                            <th>Tipo documento</th>
+                            <th>Lugar expedicion</th>
+                            <th>Precio unitario</th>
+                            <th>Modelo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entity in entities %}
+                            <tr>
+                                <td><a href="{{ path('folio_show', { 'id': entity.id }) }}">
+                                    {{ entity.serie }}</a></td>                
+                                <td>{{ entity.folioInicial }}</td>
+                                <td>{{ entity.folioFinal }}</td>
+                                <td>{{ entity.tipoDocumento }}</td>
+                                <td>{{ entity.lugarExpedicion }}</td>
+                                <td>{{ entity.precioUnitario }}</td>
+                                <td>{{ entity.modelo }}</td>
+                                <td>                               
+                                    <a href="{{ path('folio_show', { 'id': entity.id }) }}" class="btn btn-default"><i class="fa fa-eye"></i>&nbsp;Ver</a>
+                                    <a href="{{ path('folio_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>Editar</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     {% endblock %}

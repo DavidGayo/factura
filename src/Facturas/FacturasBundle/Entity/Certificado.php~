@@ -102,7 +102,7 @@ class Certificado
 
         // set the path property to the filename where you've saved the file
         $this->path = urlencode(time().$this->getCertificado()->getClientOriginalName());
-        $this->certificado=$this->getUploadDir($dir).'/'.$this->llavePath;
+        $this->certificado=$this->getUploadDir($dir).'/'.$this->path;
         return true;
         // clean up the f$this->path = $this->getFile()->getClientOriginalName();ile property as you won't need it anymore
         //$this->setImagen(null);

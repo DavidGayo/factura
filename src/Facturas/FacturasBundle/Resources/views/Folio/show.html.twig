@@ -1,56 +1,96 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Folio</h1>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="panel-title">Ver Folio</span>
+        </div>
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Serie</th>
-                <td>{{ entity.serie }}</td>
-            </tr>
-            <tr>
-                <th>Folioinicial</th>
-                <td>{{ entity.folioInicial }}</td>
-            </tr>
-            <tr>
-                <th>Foliofinal</th>
-                <td>{{ entity.folioFinal }}</td>
-            </tr>
-            <tr>
-                <th>Tipodocumento</th>
-                <td>{{ entity.tipoDocumento }}</td>
-            </tr>
-            <tr>
-                <th>Lugarexpedicion</th>
-                <td>{{ entity.lugarExpedicion }}</td>
-            </tr>
-            <tr>
-                <th>Preciounitario</th>
-                <td>{{ entity.precioUnitario }}</td>
-            </tr>
-            <tr>
-                <th>Modelo</th>
-                <td>{{ entity.modelo }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="panel-body">
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('folio') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('folio_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Serie:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.serie }} 
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Folio inicial:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.folioInicial }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Folio final:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.folioFinal }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Tipo documento:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.tipoDocumento }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Lugar expedicion:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.lugarExpedicion }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Precio unitario:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.precioUnitario }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Modelo:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.modelo }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-footer">
+                <div class="inline">
+                    <a href="{{ path('folio_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
+                    <a class="btn btn-warning" href="{{ path('folio') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a><br /><br />
+                    {{ form(delete_form) }}
+                </div>
+            </div>
+    </div>
 {% endblock %}
+{% block js %}
+<script src="{{ asset('bundles/app/vendor/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
+<script src="{{ asset('bundles/app/vendor/plugins/highcharts/highcharts.js') }}"></script>
+<script src="{{ asset('bundles/app/vendor/plugins/circles/circles.js') }}"></script>
+<script src="{{ asset('bundles/app/assets/js/demo/charts/highcharts.js') }}"></script>
+{% endblock js %}
