@@ -456,10 +456,21 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a class="accordion-toggle" href="#">
               <span class="fa fa-line-chart"></span>
               <span class="sidebar-title">Administracion</span>
+              <span class="caret"></span>
             </a>
+            <ul class="nav sub-nav">
+              <li>
+                <a href="{{ path('folio') }}">
+                  <span class="glyphicon glyphicon-book"></span> Folio </a>
+              </li>
+              <li>
+                <a href="{{ path('emisor') }}">
+                  <span class="glyphicon glyphicon-modal-window"></span> Emisor </a>
+              </li>
+            </ul>
           </li>
           <li>
             <a class="accordion-toggle" href="#">
@@ -551,7 +562,7 @@
             </ul>
           </li>
           <li>
-            <a href="{{ path('email') }}">
+            <a href="#">
               <span class="fa fa-envelope-o"></span>
               <span class="sidebar-title">Email</span>
             </a>
