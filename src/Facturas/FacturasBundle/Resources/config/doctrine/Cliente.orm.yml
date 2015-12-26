@@ -30,6 +30,12 @@ Facturas\FacturasBundle\Entity\Cliente:
             inversedBy: cliente
             joinColumn:
                 name: regimenTributario_id
+                referencedColumnName: id 
+        moneda:
+            targetEntity: Facturas\GeneralBundle\Entity\Moneda
+            inversedBy: cliente
+            joinColumn:
+                name: moneda_id
                 referencedColumnName: id
     oneToMany:
         direccionCliente:

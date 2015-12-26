@@ -4,9 +4,13 @@ namespace Facturas\FacturasBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 use Facturas\FacturasBundle\Entity\Contacto;
 use Facturas\FacturasBundle\Form\ContactoType;
+use Facturas\FacturasBundle\Entity\Cliente;
+use Facturas\FacturasBundle\Form\ClienteType;
+
 
 /**
  * Contacto controller.
@@ -84,6 +88,37 @@ class ContactoController extends Controller
         return $this->render('FacturasBundle:Contacto:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
+        ));
+    }
+
+    public function addAction(Request $request,$id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $cliente = $em -> getRepository('FacturasBundle:Cliente')->find($id);
+        $editForm = $this->createForm(new ClienteType(),$cliente);
+
+        $entity = new Contacto();
+        $form = $this->createForm(new ContactoType(), $entity, array(
+            'action' => $this->generateUrl('contactocliente_add',array('id'=>$id)),
+            'method' => 'POST',
+        ));
+        $form->handleRequest($request);
+
+        if ($form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $entity->setCliente($cliente);
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('cliente'));
+
+        }
+
+        return $this->render('FacturasBundle:Cliente:newcontacto.html.twig', array(
+             'form'   => $form->createView(),
+             'edit_form'   => $editForm->createView(),
         ));
     }
 
@@ -217,7 +252,7 @@ class ContactoController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('contacto_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Eliminar', 'attr' => array('class' => 'btn btn-danger')))
+            ->add('submit', 'submit', array('label' => ' Eliminar', 'attr' => array('class' => 'btn btn-danger fa fa-times')))
             ->getForm()
         ;
     }

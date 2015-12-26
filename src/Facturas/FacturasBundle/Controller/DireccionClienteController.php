@@ -4,6 +4,7 @@ namespace Facturas\FacturasBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 use Facturas\FacturasBundle\Entity\DireccionCliente;
 use Facturas\FacturasBundle\Form\DireccionClienteType;
@@ -47,7 +48,7 @@ class DireccionClienteController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('direccioncliente_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('cliente'));
         }
 
         return $this->render('FacturasBundle:DireccionCliente:new.html.twig', array(
@@ -93,12 +94,14 @@ class DireccionClienteController extends Controller
     public function addAction(Request $request,$id)
     {
         $em = $this->getDoctrine()->getManager();
-
         $cliente = $em -> getRepository('FacturasBundle:Cliente')->find($id);
         $editForm = $this->createForm(new ClienteType(),$cliente);
 
         $entity = new DireccionCliente();
-        $form = $this->createForm(new DireccionClienteType(),$entity);
+        $form = $this->createForm(new DireccionClienteType(), $entity, array(
+            'action' => $this->generateUrl('direccioncliente_add',array('id'=>$id)),
+            'method' => 'POST',
+        ));
         $form->handleRequest($request);
 
         if ($form->isValid())
@@ -109,10 +112,8 @@ class DireccionClienteController extends Controller
             $em->flush();
 
             return $this->redirect($this->generateUrl('cliente'));
-
         }
-
-        return $this->render('FacturasBundle:Cliente:ola.html.twig', array(
+        return $this->render('FacturasBundle:Cliente:newaddress.html.twig', array(
              'form'   => $form->createView(),
              'edit_form'   => $editForm->createView(),
         ));
@@ -248,7 +249,7 @@ class DireccionClienteController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('direccioncliente_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Eliminar', 'attr' => array('class' => 'btn btn-danger')))
+            ->add('submit', 'submit', array('label' => ' Eliminar', 'attr' => array('class' => 'btn btn-danger fa fa-times')))
             ->getForm()
         ;
     }

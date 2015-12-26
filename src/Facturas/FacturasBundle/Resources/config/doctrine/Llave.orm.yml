@@ -1,0 +1,17 @@
+Facturas\FacturasBundle\Entity\Llave:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        llave:
+            type: string
+            length: '120'
+        path:
+            type: string
+            length: '120'
+    lifecycleCallbacks: {  }

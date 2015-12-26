@@ -28,7 +28,7 @@ class ClienteController extends Controller
 
         $query = $em -> createQuery('SELECT c, dc FROM FacturasBundle:DireccionCliente dc LEFT JOIN dc.cliente c WHERE c.id = dc.cliente');
         $entities = $query -> getResult();
-
+        
         return $this->render('FacturasBundle:Cliente:index.html.twig', array(
             'entities' => $entities,
         ));
@@ -221,7 +221,7 @@ class ClienteController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('cliente_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Eliminar', 'attr' => array('class' => 'btn btn-danger')))
+            ->add('submit', 'submit', array('label' => ' Eliminar', 'attr' => array('class' => 'btn btn-danger fa fa-times')))
             ->getForm()
         ;
     }

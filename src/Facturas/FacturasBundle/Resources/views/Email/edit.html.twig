@@ -1,0 +1,82 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <div class="panel panel-default">
+    	<div class="panel-heading">
+            <span class="panel-title">Editar E-mail</span>
+    	</div>
+
+    	<div class="panel-body">
+    		{{ form_start(edit_form) }}
+    		{{ form_errors(edit_form) }}
+
+    		<div class="form-group">
+                <div class="row">
+                	<label class="col-lg-3 control-label">Usuario</label>
+                	<div class="col-lg-5 mb10">
+                		{{ form_errors(edit_form.usuario) }}
+                		{{ form_widget(edit_form.usuario, {'attr': {'class': 'form-control'}}) }}
+                	</div>	
+                </div>
+    		</div>
+
+    		<div class="form-group">
+    			<div class="row">
+    				<label class="col-lg-3 control-label">Contraseña</label>
+    				<div class="col-lg-5 mb10">    					
+                		{{ form_widget(edit_form.contrasena.first, {'attr': {'class': 'form-control'}}) }}
+    			    </div>
+    		    </div>
+    		</div> 
+
+    		<div class="form-group">
+    			<div class="row">
+    				<label class="col-lg-3 control-label">Confirmar contraseña</label>
+    				<div class="col-lg-5 mb10">    					
+                		{{ form_widget(edit_form.contrasena.second, {'attr': {'class': 'form-control'}}) }}
+                		{{ form_errors(edit_form.contrasena) }}
+    			    </div>
+    		    </div>
+    		</div> 
+    		
+    		<div class="form-group">
+    			<div class="row">
+    				<label class="col-lg-3 control-label">Protocolo</label>
+    				<div class="col-lg-5 mb10">
+    					{{ form_errors(edit_form.protocolo) }}
+                		{{ form_widget(edit_form.protocolo, {'attr': {'class': 'form-control'}}) }}
+    			    </div>
+    		    </div>
+    		</div>  
+
+    		<div class="form-group">
+    			<div class="row">
+    				<label class="col-lg-3 control-label">Host</label>
+    				<div class="col-lg-5 mb10">
+    					{{ form_errors(edit_form.host) }}
+                		{{ form_widget(edit_form.host, {'attr': {'class': 'form-control'}}) }}
+    			    </div>
+    		    </div>
+    		</div>    
+
+    		<div class="form-group">
+    			<div class="row">
+    				<label class="col-lg-3 control-label">Puerto</label>
+    				<div class="col-lg-5 mb10">
+    					{{ form_errors(edit_form.puerto) }}
+                		{{ form_widget(edit_form.puerto, {'attr': {'class': 'form-control'}}) }}
+    			    </div>
+    		    </div>
+    		</div>
+
+    		{{ form_widget(edit_form._token) }}  
+
+
+    		<div class="col-xs-12">
+				<button class="btn btn-primary" type="submit" id="sendform"><i class="fa fa-pencil"></i>&nbsp;Actualizar</button>
+				<a class="btn btn-warning" href="{{ path('email') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a>
+			</div> 
+			</form>        
+        </div>
+    </div>    
+{% endblock %}

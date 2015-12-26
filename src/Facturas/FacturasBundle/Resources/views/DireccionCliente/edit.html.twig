@@ -3,7 +3,7 @@
 {% block body -%}
 <div class="panel">
 	<div class="panel-heading">
-		<span class="panel-title">Nuevo Cliente</span>
+		<span class="panel-title">Editar Cliente</span>
 	</div>
 	<div class="panel-body">
 		{{ form_start(edit_form) }}
@@ -13,8 +13,62 @@
 						<div class="row">
 						<label class="col-lg-3 control-label">Cliente</label>
 						<div class="col-lg-5 mb10">
-							{{ form_errors(edit_form.cliente) }}
-							{{ form_widget(edit_form.cliente, {'attr': {'class': 'form-control'}}) }}
+							{{ form_errors(edit_form.cliente.razonSocial) }}
+							{{ form_widget(edit_form.cliente.razonSocial, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">RFC</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(edit_form.cliente.rfc) }}
+							{{ form_widget(edit_form.cliente.rfc, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Telefono</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(edit_form.cliente.telefono) }}
+							{{ form_widget(edit_form.cliente.telefono, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Alias</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(edit_form.cliente.alias) }}
+							{{ form_widget(edit_form.cliente.alias, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Email</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(edit_form.cliente.email) }}
+							{{ form_widget(edit_form.cliente.email, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Regimen Tributario</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(edit_form.cliente.regimenTributario) }}
+							{{ form_widget(edit_form.cliente.regimenTributario, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Tipo Moneda</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(edit_form.cliente.moneda) }}
+							{{ form_widget(edit_form.cliente.moneda, {'attr': {'class': 'form-control'}}) }}
 						</div>
 					</div>
 				</div>

@@ -1,11 +1,14 @@
-{% block body %}
+
 <div class="panel">
 	<div class="panel-heading">
-		<span class="panel-title">Nueva Direcciom</span>
+		<span class="panel-title">Nueva Direccion</span>
 	</div>
 	<div class="panel-body">
 
-		{{ form_start(edit_form) }}
+		{{ form_start(form) }}
+			{{ form_errors(form) }}
+
+			{{ form_start(edit_form) }}
 			<div class="form-group">
 				<div class="row">
 					<label class="col-lg-3 control-label">Cliente</label>
@@ -14,9 +17,6 @@
 					</div>
 				</div>
 			</div>
-
-		{{ form_start(form) }}
-			{{ form_errors(form) }}
 
 	   				
 					<div class="form-group">
@@ -110,4 +110,3 @@
 		</form>
 	</div>
 </div>
-{% endblock %}

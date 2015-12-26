@@ -29,4 +29,11 @@ Facturas\FacturasBundle\Entity\Folio:
         modelo:
             type: string
             length: '20'
+    manyToOne:
+        llave:
+            targetEntity: Facturas\FacturasBundle\Entity\Llave
+            cascade: ["persist"]
+        certificado:
+            targetEntity: Facturas\FacturasBundle\Entity\Certificado
+            cascade: ["persist"]
     lifecycleCallbacks: {  }

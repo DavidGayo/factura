@@ -1,0 +1,83 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="panel-title">Ver E-mail</span>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Usuario:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.usuario }}
+                    </div>
+                </div>    
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Contrasena:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.contrasena }}
+                    </div>
+                </div>    
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Protocolo:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.protocolo }}
+                    </div>
+                </div>    
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Host:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.host }}
+                    </div>
+                </div>    
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Puerto:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.puerto }}
+                    </div>
+                </div>    
+            </div>
+
+        </div>
+
+            <div class="panel-footer">
+                <div class="inline">
+                    <a href="{{ path('email_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
+                    <a class="btn btn-warning" href="{{ path('email') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a><br /><br />
+                    {{ form(delete_form) }}
+                </div>
+            </div> 
+        
+    </div>
+{% endblock %}
+{% block js %}
+<script src="{{ asset('bundles/app/vendor/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
+<script src="{{ asset('bundles/app/vendor/plugins/highcharts/highcharts.js') }}"></script>
+<script src="{{ asset('bundles/app/vendor/plugins/circles/circles.js') }}"></script>
+<script src="{{ asset('bundles/app/assets/js/demo/charts/highcharts.js') }}"></script>
+{% endblock js %}

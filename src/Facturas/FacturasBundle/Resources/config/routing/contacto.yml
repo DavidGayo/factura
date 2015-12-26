@@ -28,3 +28,7 @@ contacto_delete:
     path:     /{id}/delete
     defaults: { _controller: "FacturasBundle:Contacto:delete" }
     methods:  [POST, DELETE]
+
+contactocliente_add:
+    path:     /add/{id}
+    defaults: { _controller: "FacturasBundle:Contacto:add" }

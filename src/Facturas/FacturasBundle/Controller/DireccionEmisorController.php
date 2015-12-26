@@ -78,13 +78,27 @@ class DireccionEmisorController extends Controller
      */
     public function newAction()
     {
-        $entity = new DireccionEmisor();
-        $form   = $this->createCreateForm($entity);
+        $em = $this->getDoctrine()->getManager();
+        $emisor = $em ->getRepository('FacturasBundle:Emisor')->findAll();
+        $id  =  $emisor[0] -> getId();
 
-        return $this->render('FacturasBundle:DireccionEmisor:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+        if (empty($emisor))
+        {
+            $entity = new DireccionEmisor();
+            $form   = $this->createCreateForm($entity);
+
+            return $this->render('FacturasBundle:DireccionEmisor:new.html.twig', array(
+                'entity' => $entity,
+                'form'   => $form->createView(),
+                'id'   => $id,
+            ));
+        }
+
+         $response = $this->forward('FacturasBundle:DireccionEmisor:edit', array(
+             'id'  => $id,
+            ));
+
+         return $response;
     }
 
     /**
@@ -217,7 +231,7 @@ class DireccionEmisorController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('direccionemisor_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Eliminar', 'attr' => array('class' => 'btn btn-danger')))
+            ->add('submit', 'submit', array('label' => ' Eliminar', 'attr' => array('class' => 'btn btn-danger fa fa-times')))
             ->getForm()
         ;
     }

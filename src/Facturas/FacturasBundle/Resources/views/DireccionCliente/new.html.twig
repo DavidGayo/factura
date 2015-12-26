@@ -13,8 +13,62 @@
 						<div class="row">
 						<label class="col-lg-3 control-label">Cliente</label>
 						<div class="col-lg-5 mb10">
-							{{ form_errors(form.cliente) }}
-							{{ form_widget(form.cliente, {'attr': {'class': 'form-control'}}) }}
+							{{ form_errors(form.cliente.razonSocial) }}
+							{{ form_widget(form.cliente.razonSocial, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">RFC</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.cliente.rfc) }}
+							{{ form_widget(form.cliente.rfc, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Telefono</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.cliente.telefono) }}
+							{{ form_widget(form.cliente.telefono, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Alias</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.cliente.alias) }}
+							{{ form_widget(form.cliente.alias, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Email</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.cliente.email) }}
+							{{ form_widget(form.cliente.email, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Regimen Tributario</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.cliente.regimenTributario) }}
+							{{ form_widget(form.cliente.regimenTributario, {'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="row">
+						<label class="col-lg-3 control-label">Tipo Moneda</label>
+						<div class="col-lg-5 mb10">
+							{{ form_errors(form.cliente.moneda) }}
+							{{ form_widget(form.cliente.moneda, {'attr': {'class': 'form-control'}}) }}
 						</div>
 					</div>
 				</div>
@@ -104,7 +158,7 @@
 			
 			<div class="col-xs-12">
 				<button class="btn btn-success" type="submit" id="sendform"><i class="fa fa-plus"></i>&nbsp;Crear</button>
-				<a class="btn btn-warning" href="{{ path('direccioncliente') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a>
+				<a class="btn btn-warning" href="{{ path('cliente') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a>
 			</div>
 
 		</form>

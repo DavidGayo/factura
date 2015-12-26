@@ -1,0 +1,30 @@
+llave:
+    path:     /
+    defaults: { _controller: "FacturasBundle:Llave:index" }
+
+llave_show:
+    path:     /{id}/show
+    defaults: { _controller: "FacturasBundle:Llave:show" }
+
+llave_new:
+    path:     /new
+    defaults: { _controller: "FacturasBundle:Llave:new" }
+
+llave_create:
+    path:     /create
+    defaults: { _controller: "FacturasBundle:Llave:create" }
+    methods:  POST
+
+llave_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FacturasBundle:Llave:edit" }
+
+llave_update:
+    path:     /{id}/update
+    defaults: { _controller: "FacturasBundle:Llave:update" }
+    methods:  [POST, PUT]
+
+llave_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FacturasBundle:Llave:delete" }
+    methods:  [POST, DELETE]

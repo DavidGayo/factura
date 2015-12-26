@@ -414,43 +414,108 @@
         <ul class="nav sidebar-menu">
           <li class="sidebar-label pt20">Menu</li>
           <li>
-            <a href="#">
-              <span class="fa fa-home"></span>
-              <span class="sidebar-title">Inicio</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
+            <a href="{{ path('cliente') }}">
               <span class="fa fa-user"></span>
-              <span class="sidebar-title">Usuarios</span>
-              <span class="sidebar-title-tray">
-                <span class="label label-xs bg-primary">New</span>
-              </span>
+              <span class="sidebar-title">Cliente</span>
             </a>
+          </li>
+          
+          <li>
+            <a class="accordion-toggle" href="#">
+              <span class="fa fa-cubes"></span>
+              <span class="sidebar-title">Producto</span>
+              <span class="caret"></span>
+            </a>
+              <ul class="nav sub-nav">
+                <li>
+                  <a href="{{ path('producto') }}">
+                    <span class="glyphicon glyphicon-book"></span> Producto </a>
+                </li>
+                <li>
+                  <a href="{{ path('tipoproducto') }}">
+                  <span class="glyphicon glyphicon-modal-window"></span> Tipo Producto </a>
+                </li>
+              </ul>
           </li>
           <li>
             <a href="#">
-              <span class="fa fa-home"></span>
-              <span class="sidebar-title">Licencias</span>
+              <span class="fa fa-file-text"></span>
+              <span class="sidebar-title">Comprobantes</span>
             </a>
           </li>
           <li>
-            <a href="#">
-              <span class="fa fa-folder"></span>
-              <span class="sidebar-title">Archivos</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span class="glyphicon glyphicon-book"></span>
-              <span class="sidebar-title">Documentation</span>
-            </a>
-          </li>
-          <li class="active">
             <a href="#">
               <span class="glyphicon glyphicon-home"></span>
-              <span class="sidebar-title">Dashboard</span>
+              <span class="sidebar-title">Sucursales</span>
             </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fa fa-users"></span>
+              <span class="sidebar-title">Usuarios</span>              
+            </a>
+          </li>
+          <li>
+            <a class="accordion-toggle" href="#">
+              <span class="fa fa-line-chart"></span>
+              <span class="sidebar-title">Administracion</span>
+              <span class="caret"></span>
+            </a>
+            <ul class="nav sub-nav">
+              <li>
+                <a href="{{ path('folio') }}">
+                  <span class="glyphicon glyphicon-book"></span> Folio </a>
+              </li>
+              <li>
+                <a href="{{ path('emisor') }}">
+                  <span class="glyphicon glyphicon-modal-window"></span> Emisor </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a class="accordion-toggle" href="#">
+              <span class="fa fa-gears"></span>
+              <span class="sidebar-title">Configuracion</span>
+              <span class="caret"></span>
+            </a>
+            <ul class="nav sub-nav">
+              <li>
+                <a href="{{ path('pais') }}">
+                  <span class="glyphicon glyphicon-book"></span> Pais </a>
+              </li>
+              <li>
+                <a href="{{ path('estado') }}">
+                  <span class="glyphicon glyphicon-modal-window"></span> Estado </a>
+              </li>
+              <li>
+                <a href="{{ path('municipio') }}">
+                  <span class="glyphicon glyphicon-equalizer"></span> Municipio </a>
+              </li>
+              <li>
+                <a href="{{ path('regimenfiscal') }}">
+                  <span class="glyphicon glyphicon-equalizer"></span> Regimen Fiscal </a>
+              </li>
+              <li>
+                <a href="{{ path('regimentributario') }}">
+                  <span class="glyphicon glyphicon-equalizer"></span> Regimen Tributario </a>
+              </li>
+              <li>
+                <a href="{{ path('giro') }}">
+                  <span class="glyphicon glyphicon-equalizer"></span> Giro </a>
+              </li>
+              <li>
+                <a href="{{ path('email') }}">
+                  <span class="glyphicon glyphicon-equalizer"></span> E-mail </a>
+              </li>
+              <li>
+                <a href="{{ path('contribuyente') }}">
+                  <span class="glyphicon glyphicon-equalizer"></span> Contribuyente </a>
+              </li>
+              <li>
+                <a href="{{ path('moneda') }}">
+                  <span class="glyphicon glyphicon-equalizer"></span> Moneda </a>
+              </li>
+            </ul>
           </li>
           <li class="sidebar-label pt15">Exclusive Tools</li>
           <li>
@@ -497,9 +562,9 @@
             </ul>
           </li>
           <li>
-            <a href="email_templates.html">
+            <a href="#">
               <span class="fa fa-envelope-o"></span>
-              <span class="sidebar-title">Email Templates</span>
+              <span class="sidebar-title">Email</span>
             </a>
           </li>
 
@@ -638,6 +703,7 @@
       <!-- End: Content -->
 
       <!-- Begin: Page Footer -->
+      
       <footer id="content-footer">
         <div class="row">
           <div class="col-md-6">
