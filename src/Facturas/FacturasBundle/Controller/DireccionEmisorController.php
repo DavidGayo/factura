@@ -80,7 +80,7 @@ class DireccionEmisorController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $emisor = $em ->getRepository('FacturasBundle:Emisor')->findAll();
-        $id  =  $emisor[0] -> getId();
+        $id  = 1;
 
         if (empty($emisor))
         {
@@ -90,7 +90,6 @@ class DireccionEmisorController extends Controller
             return $this->render('FacturasBundle:DireccionEmisor:new.html.twig', array(
                 'entity' => $entity,
                 'form'   => $form->createView(),
-                'id'   => $id,
             ));
         }
 
@@ -186,7 +185,7 @@ class DireccionEmisorController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('direccionemisor_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('emisor'));
         }
 
         return $this->render('FacturasBundle:DireccionEmisor:edit.html.twig', array(
