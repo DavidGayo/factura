@@ -290,36 +290,32 @@ class Cliente
     /**
      * @var \Facturas\GeneralBundle\Entity\Moneda
      */
-    private $Moneda;
+    private $tipoMoneda;
 
 
     /**
-     * Set moneda
+     * Set tipoMoneda
      *
-     * @param \Facturas\GeneralBundle\Entity\Moneda $moneda
+     * @param \Facturas\GeneralBundle\Entity\Moneda $tipoMoneda
      *
      * @return Cliente
      */
-    public function setMoneda(\Facturas\GeneralBundle\Entity\Moneda $moneda = null)
+    public function setTipoMoneda(\Facturas\GeneralBundle\Entity\Moneda $tipoMoneda = null)
     {
-        $this->Moneda = $moneda;
+        $this->tipoMoneda = $tipoMoneda;
 
         return $this;
     }
 
     /**
-     * Get moneda
+     * Get tipoMoneda
      *
      * @return \Facturas\GeneralBundle\Entity\Moneda
      */
-    public function getMoneda()
+    public function getTipoMoneda()
     {
-        return $this->Moneda;
+        return $this->tipoMoneda;
     }
-    /**
-     * @var \Facturas\GeneralBundle\Entity\Moneda
-     */
-    private $moneda;
 
 
 }

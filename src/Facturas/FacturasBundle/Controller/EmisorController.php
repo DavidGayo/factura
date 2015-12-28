@@ -95,7 +95,9 @@ class EmisorController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('FacturasBundle:Emisor')->find($id);
+        //$entity = $em->getRepository('FacturasBundle:Emisor')->find($id);
+        $query = $em -> createQuery('SELECT e, de FROM FacturasBundle:DireccionEmisor de JOIN de.emisor e WHERE e.id = :id')->setParameter('id',$id);
+        $entity = $query -> getResult();
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Emisor entity.');
@@ -104,7 +106,7 @@ class EmisorController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('FacturasBundle:Emisor:show.html.twig', array(
-            'entity'      => $entity,
+            'entities'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }

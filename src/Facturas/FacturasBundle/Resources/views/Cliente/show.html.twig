@@ -7,13 +7,15 @@
     </div>
     <div class="panel-body">
 
+           {% for entity in entities %}
+
         <div class="form-group">
                         <div class="row">
         <div class="col-xs-12 col-lg-2">
             <p><b>Razon Social:</b> </p>
         </div>
         <div>
-            {{ entity.razonSocial }}
+            {{ entity.cliente.razonSocial }}
         </div>
     </div>
 </div>
@@ -23,7 +25,7 @@
             <p><b>RFC:</b> </p>
         </div>
         <div>
-            {{ entity.rfc }}
+            {{ entity.cliente.rfc }}
         </div>
     </div>
 </div>
@@ -33,7 +35,7 @@
             <p><b>Alias:</b> </p>
         </div>
         <div>
-            {{ entity.alias }}
+            {{ entity.cliente.alias }}
         </div>
     </div>
 </div>
@@ -43,7 +45,7 @@
             <p><b>Email:</b> </p>
         </div>
         <div>
-            {{ entity.email }}
+            {{ entity.cliente.email }}
         </div>
     </div>
 </div>
@@ -53,7 +55,7 @@
             <p><b>Telefono:</b> </p>
         </div>
         <div>
-            {{ entity.telefono }}
+            {{ entity.cliente.telefono }}
         </div>
     </div>
 </div>
@@ -63,7 +65,7 @@
             <p><b>Regimen Tributario:</b> </p>
         </div>
         <div>
-            {{ entity.regimenTributario }}
+            {{ entity.cliente.regimenTributario }}
         </div>
     </div>
 </div>
@@ -73,7 +75,7 @@
             <p><b>Moneda:</b> </p>
         </div>
         <div>
-            {{ entity.moneda }}
+            {{ entity.cliente.tipoMoneda }}
         </div>
     </div>
 </div>
@@ -84,11 +86,13 @@
 
  <div class="panel-footer">
         <div class="inline">
-            <a href="{{ path('direccioncliente_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
+            <a href="{{ path('direccioncliente_edit', { 'id': entity.cliente.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
             <a class="btn btn-warning" href="{{ path('cliente') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a><br /><br />
              {{ form(delete_form) }}
         </div>
-    </div> 
+    </div>
+
+    {% endfor %}  
 
 </div>
 {% endblock %}

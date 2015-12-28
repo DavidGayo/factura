@@ -1,19 +1,22 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
+<pre>{{dump(entities)}}</pre>
   <div class="panel">
     <div class="panel-heading">
         <span class="panel-title">Ver Emisor</span>
     </div>
     <div class="panel-body">
 
+        {% for entity in entities %}
+
         <div class="form-group">
-                        <div class="row">
-        <div class="col-xs-12 col-lg-2">
-            <p><b>Razon Social:</b> </p>
-        </div>
-        <div>
-            {{ entity.razonSocial }}
+            <div class="row">
+                <div class="col-xs-12 col-lg-2">
+                    <p><b>Razon Social:</b> </p>
+                </div>
+            <div>
+            {{ entity.emisor.razonSocial }}
         </div>
     </div>
 </div>
@@ -23,7 +26,7 @@
             <p><b>RFC:</b> </p>
         </div>
         <div>
-            {{ entity.rfc }}
+            {{ entity.emisor.rfc }}
         </div>
     </div>
 </div>
@@ -33,7 +36,7 @@
             <p><b>Contribuyente:</b> </p>
         </div>
         <div>
-            {{ entity.tipoContribuyente }}
+            {{ entity.emisor.tipoContribuyente }}
         </div>
     </div>
 </div>
@@ -43,17 +46,28 @@
             <p><b>Giro:</b> </p>
         </div>
         <div>
-            {{ entity.giro }}
+            {{ entity.emisor.giro }}
         </div>
     </div>
 </div>
 <div class="form-group">
-                        <div class="row">
+            <div class="row">
         <div class="col-xs-12 col-lg-2">
             <p><b>Regimen Fiscal:</b> </p>
         </div>
         <div>
-            {{ entity.regimenFiscal }}
+            {{ entity.emisor.regimenFiscal }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+            <div class="row">
+        <div class="col-xs-12 col-lg-2">
+            <p><b>Calle:</b> </p>
+        </div>
+        <div>
+            {{ entity.calle }}
         </div>
     </div>
 </div>
@@ -64,12 +78,12 @@
 
  <div class="panel-footer">
         <div class="inline">
-            <a href="{{ path('emisor_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
+            <a href="{{ path('emisor_edit', { 'id': entity.emisor.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
             <a class="btn btn-warning" href="{{ path('emisor') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a><br /><br />
         </div>
     </div>
-    
-       
+
+ {% endfor %} 
 
 </div>
 {% endblock %}

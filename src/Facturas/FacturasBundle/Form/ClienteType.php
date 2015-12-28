@@ -21,7 +21,7 @@ class ClienteType extends AbstractType
             ->add('alias')
             ->add('email')
             ->add('regimenTributario')
-            ->add('moneda')
+            ->add('tipoMoneda')
         ;
     }
     

@@ -316,10 +316,6 @@ class Cliente
     {
         return $this->Moneda;
     }
-    /**
-     * @var \Facturas\GeneralBundle\Entity\Moneda
-     */
-    private $moneda;
 
 
 }

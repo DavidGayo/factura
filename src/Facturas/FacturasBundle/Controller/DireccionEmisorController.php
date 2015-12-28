@@ -44,7 +44,7 @@ class DireccionEmisorController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('direccionemisor_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('emisor_show', array('id' => $entity->getId())));
         }
 
         return $this->render('FacturasBundle:DireccionEmisor:new.html.twig', array(
