@@ -35,7 +35,6 @@
                 <td>{{ entity.pais }}</td>
                 <td>
                     <a href="{{ path('cliente_show', { 'id': entity.cliente.id }) }}" class="btn btn-default"><i class="fa fa-eye"></i>&nbsp;Ver</a>
-                  
                     <a href="{{ path('direccioncliente_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
                     <a href="{{ path('direccioncliente_add', {'id': entity.cliente.id }) }}" class="btn btn-info"><i class="fa fa-plus"></i>&nbsp;Direccion</a>
                     <a href="{{ path('contactocliente_add', {'id': entity.cliente.id }) }}" class="btn btn-warning"><i class="fa fa-plus"></i>&nbsp;Contacto</a>

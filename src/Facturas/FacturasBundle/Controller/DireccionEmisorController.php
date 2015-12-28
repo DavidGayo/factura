@@ -82,21 +82,23 @@ class DireccionEmisorController extends Controller
         $emisor = $em ->getRepository('FacturasBundle:Emisor')->findAll();
         $id  =  $emisor[0] -> getId();
 
-        if ($id != 0)
+        if (empty($emisor))
         {
-            $response = $this->forward('FacturasBundle:DireccionEmisor:edit', array(
-             'id'  => $id,
+            $entity = new DireccionEmisor();
+            $form   = $this->createCreateForm($entity);
+
+            return $this->render('FacturasBundle:DireccionEmisor:new.html.twig', array(
+                'entity' => $entity,
+                'form'   => $form->createView(),
+                'id'   => $id,
             ));
         }
 
-        $entity = new DireccionEmisor();
-        $form   = $this->createCreateForm($entity);
+         $response = $this->forward('FacturasBundle:DireccionEmisor:edit', array(
+             'id'  => $id,
+            ));
 
-        return $this->render('FacturasBundle:DireccionEmisor:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-            'id'   => $id,
-        ));
+         return $response;
     }
 
     /**
