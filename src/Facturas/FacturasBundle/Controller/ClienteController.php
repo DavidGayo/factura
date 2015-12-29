@@ -99,7 +99,10 @@ class ClienteController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('FacturasBundle:Cliente')->find($id);
+        //$entity = $em->getRepository('FacturasBundle:Cliente')->find($id);
+
+        $query = $em -> createQuery('SELECT c, dc FROM FacturasBundle:DireccionCliente dc JOIN dc.cliente c WHERE c.id = :id')->setParameter('id',$id);
+        $entity = $query -> getResult();
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Cliente entity.');
@@ -108,7 +111,7 @@ class ClienteController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('FacturasBundle:Cliente:show.html.twig', array(
-            'entity'      => $entity,
+            'entities'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }

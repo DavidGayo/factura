@@ -44,7 +44,7 @@ class DireccionEmisorController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('direccionemisor_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('emisor_show', array('id' => $entity->getId())));
         }
 
         return $this->render('FacturasBundle:DireccionEmisor:new.html.twig', array(
@@ -78,13 +78,26 @@ class DireccionEmisorController extends Controller
      */
     public function newAction()
     {
-        $entity = new DireccionEmisor();
-        $form   = $this->createCreateForm($entity);
+        $em = $this->getDoctrine()->getManager();
+        $emisor = $em ->getRepository('FacturasBundle:Emisor')->findAll();
+        $id  = 1;
 
-        return $this->render('FacturasBundle:DireccionEmisor:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+        if (empty($emisor))
+        {
+            $entity = new DireccionEmisor();
+            $form   = $this->createCreateForm($entity);
+
+            return $this->render('FacturasBundle:DireccionEmisor:new.html.twig', array(
+                'entity' => $entity,
+                'form'   => $form->createView(),
+            ));
+        }
+
+         $response = $this->forward('FacturasBundle:DireccionEmisor:edit', array(
+             'id'  => $id,
+            ));
+
+         return $response;
     }
 
     /**
@@ -172,7 +185,7 @@ class DireccionEmisorController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('direccionemisor_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('emisor'));
         }
 
         return $this->render('FacturasBundle:DireccionEmisor:edit.html.twig', array(

@@ -1,19 +1,22 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
+
   <div class="panel">
     <div class="panel-heading">
         <span class="panel-title">Ver Emisor</span>
     </div>
     <div class="panel-body">
 
+        {% for entity in entities %}
+
         <div class="form-group">
-                        <div class="row">
-        <div class="col-xs-12 col-lg-2">
-            <p><b>Razon Social:</b> </p>
-        </div>
-        <div>
-            {{ entity.razonSocial }}
+            <div class="row">
+                <div class="col-xs-12 col-lg-2">
+                    <p><b>Razon Social:</b> </p>
+                </div>
+            <div>
+            {{ entity.emisor.razonSocial }}
         </div>
     </div>
 </div>
@@ -23,7 +26,7 @@
             <p><b>RFC:</b> </p>
         </div>
         <div>
-            {{ entity.rfc }}
+            {{ entity.emisor.rfc }}
         </div>
     </div>
 </div>
@@ -33,7 +36,7 @@
             <p><b>Contribuyente:</b> </p>
         </div>
         <div>
-            {{ entity.tipoContribuyente }}
+            {{ entity.emisor.tipoContribuyente }}
         </div>
     </div>
 </div>
@@ -43,20 +46,139 @@
             <p><b>Giro:</b> </p>
         </div>
         <div>
-            {{ entity.giro }}
+            {{ entity.emisor.giro }}
         </div>
     </div>
 </div>
 <div class="form-group">
-                        <div class="row">
+            <div class="row">
         <div class="col-xs-12 col-lg-2">
             <p><b>Regimen Fiscal:</b> </p>
         </div>
         <div>
-            {{ entity.regimenFiscal }}
+            {{ entity.emisor.regimenFiscal }}
         </div>
     </div>
 </div>
+
+  <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Calle:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.calle }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Numero Ext:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.numeroExt }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Numero Int:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.numeroInt }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Colonia:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.colonia }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Localidad:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.localidad }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Codigo Postal:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.codigoPostal }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>E-mail:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.email }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Telefono:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.telefono }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Pais:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.pais }}
+                    </div>
+                </div>
+            </div>       
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Estado:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.estado }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                        <p><b>Municipio:</b></p>
+                    </div>
+                    <div>
+                        {{ entity.municipio }}
+                    </div>
+                </div>
+            </div>    
+
 
 </div>
         
@@ -64,13 +186,12 @@
 
  <div class="panel-footer">
         <div class="inline">
-            <a href="{{ path('emisor_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
+            <a href="{{ path('direccionemisor_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
             <a class="btn btn-warning" href="{{ path('emisor') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a><br /><br />
-             {{ form(delete_form) }}
         </div>
     </div>
-    
-       
+
+ {% endfor %} 
 
 </div>
 {% endblock %}

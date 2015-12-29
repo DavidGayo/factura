@@ -7,14 +7,14 @@
         <span class="panel-title">Emisor</span>
     </div>
     <div class="panel-body">
-        <a href="{{ path('emisor_new') }}" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;Nuevo</a>
+        <a href="{{ path('direccionemisor_new')}}" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;Nuevo</a>
         <div class="table-responsive mt15">
             <table class="records_list table table-bordered mbn">
         <thead>
             <tr>
-                <th>Razonsocial</th>
+                <th>Razon Social</th>
                 <th>Rfc</th>
-                <th>Aciones</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +25,7 @@
                 <td>
                         <a href="{{ path('emisor_show', { 'id': entity.id }) }}" class="btn btn-default"><i class="fa fa-eye"></i>&nbsp;Ver</a>
                   
-                        <a href="{{ path('emisor_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
+                        <a href="{{ path('direccionemisor_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
                 </td>
             </tr>
         {% endfor %}
