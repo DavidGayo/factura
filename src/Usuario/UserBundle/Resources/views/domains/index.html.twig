@@ -1,0 +1,57 @@
+{% extends '::base.html.twig' %}
+{% block placeholder -%}
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li class="active"><span>Domains</span></li>
+        </ol>
+        <div class="clearfix">
+            <h1 class="pull-left">Domains</h1>
+            <div class="pull-right top-page-ui">
+                <a href="{{ path('domains_new')}}" class="btn btn-primary pull-right">
+                    <i class="fa fa-plus-circle fa-lg"></i> Agregar Domains
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock -%}
+{% block body -%}
+<div class="row">
+<div class="col-lg-12">
+<div class="main-box no-header clearfix">
+<div class="main-box-body clearfix">
+<div class="table-responsive">
+<table class="table user-list table-hover">
+<thead>
+            <tr>
+                <th>Domain</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('domains_show', { 'id': entity.id }) }}">{{ entity.domain }}</a></td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('domains_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('domains_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+            {% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}

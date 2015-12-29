@@ -1,0 +1,33 @@
+ <tbody>
+                  {% for entity in entities %}         
+                    <tr>
+                        <td class="w50">
+                            <img src="{{ asset(entity.perfil.file.file|default('none.jpg'))}}" alt="" class="img-responsive mw30 ib mr10">                    
+                           
+                        </td>
+                        <td>
+                            <a href="{{ path('user_edit', { 'id': entity.id }) }}" class="user-link">{{ entity.userName }}</a>
+                        </td>                         
+                        <td>{{entity.perfil.email|default('')}}</td>
+                        <td>{% if entity.dateCreate %}{{ entity.dateCreate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                         <td class="text-right">
+                        <div class="btn-group text-right">
+                          <button type="button" class="btn btn-success br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Active
+                            <span class="caret ml5"></span>
+                          </button>
+                          <ul class="dropdown-menu" role="menu">
+                            <li>
+                              <a href="{{ path('user_edit', { 'id': entity.id }) }}">Editar</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="active">
+                              <a href="#">Activo</a>
+                            </li>
+                            <li>
+                              <a href="{{ path('user_show', { 'id': entity.id }) }}">Eliminar</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                {% endfor %}        

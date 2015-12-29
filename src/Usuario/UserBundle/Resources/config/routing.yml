@@ -1,0 +1,35 @@
+user_users:
+    resource: "@UserBundle/Resources/config/routing/users.yml"
+    prefix:   /users
+
+user_domains:
+    resource: "@UserBundle/Resources/config/routing/domains.yml"
+    prefix:   /domains
+
+user_forwardings:
+    resource: "@UserBundle/Resources/config/routing/forwardings.yml"
+    prefix:   /forwardings
+
+user_transport:
+    resource: "@UserBundle/Resources/config/routing/transport.yml"
+    prefix:   /transport
+
+user_user:
+    resource: "@UserBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+user_role:
+    resource: "@UserBundle/Resources/config/routing/role.yml"
+    prefix:   /role
+
+user_perfil:
+    resource: "@UserBundle/Resources/config/routing/perfil.yml"
+    prefix:   /perfil
+
+user_file:
+    resource: "@UserBundle/Resources/config/routing/file.yml"
+    prefix:   /file
+
+user_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: UserBundle:Default:index }

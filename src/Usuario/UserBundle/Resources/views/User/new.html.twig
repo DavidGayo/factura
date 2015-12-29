@@ -1,0 +1,62 @@
+ 
+<!-- create new order panel -->
+          <div class="panel mb25 mt5">
+            <div class="panel-heading">
+              <span class="panel-title hidden-xs"> Agregar usuario</span>
+              <ul class="nav panel-tabs-border panel-tabs">
+                <li class="active">
+                  <a href="#tab1_1" data-toggle="tab">General</a>
+                </li>                
+              </ul>
+            </div>
+            <div class="panel-body p20 pb10">
+              <div class="tab-content pn br-n admin-form">
+                <div id="tab1_1" class="tab-pane active">
+                  {{ form_start(form) }}
+                  <div class="section row mbn">
+                    <div class="col-md-9 pl15">
+                      <div class="section mb15">                        
+                          <label for="name1" class="field prepend-icon">
+                             {{ form_widget(form.userName, {'attr': {'class': 'event-name gui-input br-light light','placeholder':'Nombre de usuario'}}) }}	        
+                            <label for="name1" class="field-icon">
+                              <i class="fa fa-user"></i>
+                            </label>
+                          </label>
+                           <span class="errorMsg">{{ form_errors(form.userName) }}</span>
+                                               
+                      </div>
+                      <div class="section row mb15">
+                        <div class="col-xs-6">
+                          <label for="password" class="field prepend-icon">
+                            {{ form_widget(form.password.first, {'attr': {'class': 'event-name gui-input br-light light','placeholder':'Password'}}) }}
+                            <label for="name2" class="field-icon">
+                              <i class="fa fa-lock"></i>
+                            </label>
+                          </label>
+                        </div>
+                        <div class="col-xs-6">
+                          <label for="password2" class="field prepend-icon">                           
+                            {{ form_widget(form.password.second, {'attr': {'class': 'event-name gui-input br-light light','placeholder':'Confirma password'}}) }}
+                            <label for="password2" class="field-icon">
+                              <i class="fa fa-unlock"></i>
+                            </label>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="section mb15">
+                        <label for="email" class="field prepend-icon">
+                         {{ form_widget(form.rol_user, {'attr': {'class': 'event-name gui-input br-light light','placeholder':'Rol'}}) }}
+                          <label for="email" class="field-icon">
+                            <i class="fa fa-envelope-o"></i>
+                          </label>
+                        </label>
+                      </div>                      
+                    </div>                   
+                  </div>
+                  <!-- end section row -->
+	                <button class="btn btn-success" type="submit"><i class="fa fa-plus"></i>&nbsp;Crear</button>        
+			        {{ form_end(form) }}  
+                </div>   
+              </div>
+            </div>
+          </div>

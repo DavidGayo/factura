@@ -1,0 +1,30 @@
+domains:
+    path:     /
+    defaults: { _controller: "UserBundle:domains:index" }
+
+domains_show:
+    path:     /{id}/show
+    defaults: { _controller: "UserBundle:domains:show" }
+
+domains_new:
+    path:     /new
+    defaults: { _controller: "UserBundle:domains:new" }
+
+domains_create:
+    path:     /create
+    defaults: { _controller: "UserBundle:domains:create" }
+    methods:  POST
+
+domains_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "UserBundle:domains:edit" }
+
+domains_update:
+    path:     /{id}/update
+    defaults: { _controller: "UserBundle:domains:update" }
+    methods:  [POST, PUT]
+
+domains_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "UserBundle:domains:delete" }
+    methods:  [POST, DELETE]

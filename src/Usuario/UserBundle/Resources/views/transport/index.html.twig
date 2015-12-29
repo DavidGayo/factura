@@ -1,0 +1,62 @@
+{% extends '::base.html.twig' %}
+{% block placeholder -%}
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li class="active"><span>Transport</span></li>
+        </ol>
+        <div class="clearfix">
+            <h1 class="pull-left">Transport</h1>
+            <div class="pull-right top-page-ui">
+                <a href="{{ path('transport_new')}}" class="btn btn-primary pull-right">
+                    <i class="fa fa-plus-circle fa-lg"></i> Agregar Transport
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock -%}
+{% block body -%}
+<div class="row">
+<div class="col-lg-12">
+<div class="main-box no-header clearfix">
+<div class="main-box-body clearfix">
+<div class="table-responsive">
+<table class="table user-list table-hover">
+<thead>
+<tr>
+<th><span>Id</span></th>
+<th><span>Domain</span></th>
+<th><span>Transport</span></th>
+<th>Operaciones</th>
+</tr>
+</thead>
+<tbody>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('transport_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.domain }}</td>
+                <td>{{ entity.transport }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('transport_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('transport_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+             {% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}
