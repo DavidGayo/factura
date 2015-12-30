@@ -1,0 +1,9 @@
+Usuario\UserBundle\Entity\domains:
+    type: entity
+    table: null
+    id:
+        domain:
+            type: string
+            length: '50'
+   
+    lifecycleCallbacks: {  }

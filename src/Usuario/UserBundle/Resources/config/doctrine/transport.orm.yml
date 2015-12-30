@@ -1,0 +1,17 @@
+Usuario\UserBundle\Entity\transport:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        domain:
+            type: string
+            length: '128'
+        transport:
+            type: string
+            length: '128'
+    lifecycleCallbacks: {  }

@@ -1,0 +1,103 @@
+{% extends '::base.html.twig' %}
+{% block placeholder -%}
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li class="active"><span>Usuarios</span></li>
+        </ol>
+        <div class="clearfix">
+            <h1 class="pull-left">Usuarios</h1>
+            <div class="pull-right top-page-ui">
+                <a href="{{ path('user_new')}}" class="btn btn-primary pull-right">
+                    <i class="fa fa-plus-circle fa-lg"></i> Agregar Usuario
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock -%}
+{% block body -%}
+
+<section id="content" class="table-layout">
+
+        <!-- begin: .tray-center -->
+        <div class="tray tray-center" style="height: 842px;">
+        {% block form -%}
+          {{ render(controller('UserBundle:User:new')) }}
+        {% endblock -%}
+          <!-- recent orders table -->
+          <div class="panel">           
+            <div class="panel-body pn">
+              <div class="table-responsive">
+                <table class="table admin-form theme-warning tc-checkbox-1 fs13">
+                  <thead>
+                    <tr class="bg-light">
+                      <th class="">Avatar</th>
+                      <th class="">Nombre</th>
+                      <th class="">Email</th>
+                      <th class="">Fecha de registro</th>
+                      <th class="text-right">Status</th>
+
+                    </tr>
+                  </thead>
+                  {% block listado -%}
+                    {{ render(controller('UserBundle:User:listado')) }}
+                  {% endblock -%}              
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- end: .tray-center -->
+
+        <!-- begin: .tray-right -->
+        <aside class="tray tray-right tray290" style="height: 797px;">
+
+          <!-- menu quick links -->
+          <div class="admin-form">
+
+            <h4>Buscar Usuario</h4>
+
+            <hr class="short">
+
+            <div class="section mb10">
+              <label for="customer-id" class="field prepend-icon">
+                <input type="text" name="user-id" id="customer-id" class="gui-input" placeholder="ID Usuario #">
+                <label for="user-id" class="field-icon">
+                  <i class="fa fa-user"></i>
+                </label>
+              </label>
+            </div>
+            <div class="section mb10">
+              <label for="customer-name" class="field prepend-icon">
+                <input type="text" name="user-name" id="user-name" class="gui-input" placeholder="Nombre ">
+                <label for="customer-name" class="field-icon">
+                  <i class="fa fa-user"></i>
+                </label>
+              </label>
+            </div>
+            <div class="section mb25">
+              <label for="user-email" class="field prepend-icon">
+                <input type="text" name="user-email" id="user-email" class="gui-input" placeholder="Email">
+                <label for="user-email" class="field-icon">
+                  <i class="fa fa-envelope-o"></i>
+                </label>
+              </label>
+            </div> 
+            <hr class="short">
+
+            <div class="section">
+                <button class="btn btn-default btn-sm ph25" type="submit">Buscar</button>               
+            </div>
+
+          </div>
+
+        </aside>
+        <!-- end: .tray-right -->
+
+      </section>
+
+{% endblock %}

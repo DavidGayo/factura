@@ -1,0 +1,12 @@
+Usuario\UserBundle\Entity\users:
+    type: entity
+    table: null
+    id:
+        email:
+            type: string
+            length: '80'
+    fields:        
+        password:
+            type: string
+            length: '20'
+    lifecycleCallbacks: {  }

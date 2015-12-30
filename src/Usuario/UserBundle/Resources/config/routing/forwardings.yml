@@ -1,0 +1,30 @@
+forwardings:
+    path:     /
+    defaults: { _controller: "UserBundle:forwardings:index" }
+
+forwardings_show:
+    path:     /{id}/show
+    defaults: { _controller: "UserBundle:forwardings:show" }
+
+forwardings_new:
+    path:     /new
+    defaults: { _controller: "UserBundle:forwardings:new" }
+
+forwardings_create:
+    path:     /create
+    defaults: { _controller: "UserBundle:forwardings:create" }
+    methods:  POST
+
+forwardings_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "UserBundle:forwardings:edit" }
+
+forwardings_update:
+    path:     /{id}/update
+    defaults: { _controller: "UserBundle:forwardings:update" }
+    methods:  [POST, PUT]
+
+forwardings_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "UserBundle:forwardings:delete" }
+    methods:  [POST, DELETE]
