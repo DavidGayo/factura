@@ -1,50 +1,59 @@
 {% extends '::base.html.twig' %}
-
-{% block body -%}
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <span class="panel-title">Producto</span>
+{% block placeholder -%}
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li class="active"><span>Usuarios</span></li>
+        </ol>
+        <div class="clearfix">
+            <h1 class="pull-left">Usuarios</h1>
+            <div class="pull-right top-page-ui">
+                <a href="{{ path('user_new')}}" class="btn btn-primary pull-right">
+                    <i class="fa fa-plus-circle fa-lg"></i> Agregar Cliente
+                </a>
+            </div>
+        </div>
     </div>
-    <div class="panel-body">
-        <a href="{{ path('producto_new') }}" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;Nuevo</a>
-        <div id="nuevo"> 
+</div>
+{% endblock -%}
+
+{% block body %}
+    <section id="content" class="table-layout">
+
+        <!-- begin: .tray-center -->
+        <div class="tray tray-center" style="height: 842px;">
+        {% block form -%}
+          {{ render(controller('FacturasBundle:Producto:new')) }}
+        {% endblock -%}
+          <!-- recent orders table -->
+          <div class="panel">           
+            <div class="panel-body pn">
+              <div class="table-responsive">
+                <table class="table admin-form theme-warning tc-checkbox-1 fs13">
+                  <thead>
+                    <tr>
+                        <th>Clave</th>
+                        <th>Tipo</th>
+                        <th>Descripción</th>
+                        <th>Unidad de medida</th>
+                        <th>Precio(Mxn)</th>
+                        <th>Precio(Usd)</th>
+                        <th>Modelo</th>
+                        <th class="text-right">Status</th>
+                    </tr>
+                </thead>
+                  {% block lista -%}
+                    {{ render(controller('FacturasBundle:Producto:listado')) }}
+                  {% endblock -%}              
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
         </div>
 
-        <div class="table-responsive mt15">
-            <table class="records_list table table-bordered mbn">
-        <thead>
-            <tr>
-                <th>Clave</th>
-                <th>Tipo</th>
-                <th>Descripción</th>
-                <th>Unidad de medida</th>
-                <th>Precio</th>
-                <th>Modelo</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('producto_show', { 'id': entity.id }) }}">{{ entity.clave }}</a></td>
-                <td>{{ entity.tipoProducto }}</td>
-                <td>{{ entity.descripcion }}</td>
-                <td>{{ entity.unidadMedida }}</td>
-                <td>{{ entity.precioUnitario }}</td>
-                <td>{{ entity.modelo }}</td>
-                <td>
-                
-                        <a href="{{ path('producto_show', { 'id': entity.id }) }}" class="btn btn-default"><i class="fa fa-eye"></i>&nbsp;Ver</a>
-                    
-                        <a href="{{ path('producto_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
+      </section>
 
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    </div><!-- table-responsive -->
-    </div><!-- panel-body -->
-</div><!-- panel -->
-    {% endblock %}
+{% endblock %}

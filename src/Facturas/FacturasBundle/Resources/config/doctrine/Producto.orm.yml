@@ -21,8 +21,12 @@ Facturas\FacturasBundle\Entity\Producto:
         unidadMedida:
             type: string
             length: '20'
-        precioUnitario:
+        precioUnitarioMxn:
             type: integer
+            nullable: TRUE
+        precioUnitarioUsd:
+            type: integer
+            nullable: TRUE
         modelo:
             type: string
             length: '15'

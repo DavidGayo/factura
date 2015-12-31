@@ -10,4 +10,13 @@ namespace Facturas\FacturasBundle\Entity;
  */
 class ClienteRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function clientes()
+	{
+		return $this->getEntityManager()->createQuery('SELECT c, dc FROM FacturasBundle:DireccionCliente dc LEFT JOIN dc.cliente c WHERE c.id = dc.cliente')->getResult();
+	}
+
+	public function clienteShow($id)
+	{
+		return $this->getEntityManager()->createQuery('SELECT c, dc FROM FacturasBundle:DireccionCliente dc JOIN dc.cliente c WHERE c.id = :id')->setParameter('id',$id)->getResult();
+	}
 }

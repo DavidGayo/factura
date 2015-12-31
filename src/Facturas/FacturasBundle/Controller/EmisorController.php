@@ -95,9 +95,8 @@ class EmisorController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        //$entity = $em->getRepository('FacturasBundle:Emisor')->find($id);
-        $query = $em -> createQuery('SELECT e, de FROM FacturasBundle:DireccionEmisor de JOIN de.emisor e WHERE e.id = :id')->setParameter('id',$id);
-        $entity = $query -> getResult();
+        $entity = $em->getRepository('FacturasBundle:Emisor')->emisor($id);
+        
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Emisor entity.');

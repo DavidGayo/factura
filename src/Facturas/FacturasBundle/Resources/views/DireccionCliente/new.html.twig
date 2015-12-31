@@ -1,167 +1,228 @@
-{% extends '::base.html.twig' %}
+ <div class="panel mb25 mt5">
 
-{% block body -%}
-<div class="panel">
-	<div class="panel-heading">
-		<span class="panel-title">Nuevo Cliente</span>
-	</div>
-	<div class="panel-body">
-		{{ form_start(form) }}
-			{{ form_errors(form) }}
+            <div class="panel-heading">
+              <span class="panel-title hidden-xs"> Agregar cliente</span>
+              <ul class="nav panel-tabs-border panel-tabs">
+                <li class="active">
+                  <a href="#tab1_1" data-toggle="tab">General</a>
+                </li>
+                 <li>
+                  <a href="#tab1_2" data-toggle="tab">Dirección</a>
+                </li>                
+              </ul>
+            </div>
+            {{ form_start(form) }}
+            <div class="panel-body p20 pb10">
+              <div class="tab-content pn br-n admin-form">
 
-	   				<div class="form-group">
-						<div class="row">
-						<label class="col-lg-3 control-label">Cliente</label>
-						<div class="col-lg-5 mb10">
-							{{ form_errors(form.cliente.razonSocial) }}
-							{{ form_widget(form.cliente.razonSocial, {'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-						<div class="row">
-						<label class="col-lg-3 control-label">RFC</label>
-						<div class="col-lg-5 mb10">
-							{{ form_errors(form.cliente.rfc) }}
-							{{ form_widget(form.cliente.rfc, {'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-						<div class="row">
-						<label class="col-lg-3 control-label">Telefono</label>
-						<div class="col-lg-5 mb10">
-							{{ form_errors(form.cliente.telefono) }}
-							{{ form_widget(form.cliente.telefono, {'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-						<div class="row">
-						<label class="col-lg-3 control-label">Alias</label>
-						<div class="col-lg-5 mb10">
-							{{ form_errors(form.cliente.alias) }}
-							{{ form_widget(form.cliente.alias, {'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-						<div class="row">
-						<label class="col-lg-3 control-label">Email</label>
-						<div class="col-lg-5 mb10">
-							{{ form_errors(form.cliente.email) }}
-							{{ form_widget(form.cliente.email, {'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-						<div class="row">
-						<label class="col-lg-3 control-label">Regimen Tributario</label>
-						<div class="col-lg-5 mb10">
-							{{ form_errors(form.cliente.regimenTributario) }}
-							{{ form_widget(form.cliente.regimenTributario, {'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-						<div class="row">
-						<label class="col-lg-3 control-label">Tipo Moneda</label>
-						<div class="col-lg-5 mb10">
-							{{ form_errors(form.cliente.tipoMoneda) }}
-							{{ form_widget(form.cliente.tipoMoneda, {'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>
-				</div>
-					<div class="form-group">
-						<div class="row">
-						<label class="col-lg-3 control-label">Calle</label>
-						<div class="col-lg-5 mb10">
-							{{ form_errors(form.calle) }}
-							{{ form_widget(form.calle, {'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>
-				</div>
-					<div class="form-group">
-						<div class="row">
-						<label class="col-lg-3 control-label">Numero Ext</label>
-						<div class="col-lg-5 mb10">
-							{{ form_errors(form.numeroExt) }}
-							{{ form_widget(form.numeroExt, {'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>
-				</div>
-					<div class="form-group">
-						<div class="row">
-						<label class="col-lg-3 control-label">Numero Int</label>
-						<div class="col-lg-5 mb10">
-							{{ form_errors(form.numeroInt) }}
-							{{ form_widget(form.numeroInt, {'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="row">
-						<label class="col-lg-3 control-label">Colonia</label>
-						<div class="col-lg-5 mb10">
-							{{ form_errors(form.colonia) }}
-							{{ form_widget(form.colonia, {'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-						<div class="row">
-						<label class="col-lg-3 control-label">Localidad</label>
-						<div class="col-lg-5 mb10">
-							{{ form_errors(form.localidad) }}
-							{{ form_widget(form.localidad, {'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-						<div class="row">
-						<label class="col-lg-3 control-label">Codigo Postal</label>
-						<div class="col-lg-5 mb10">
-							{{ form_errors(form.codigoPostal) }}
-							{{ form_widget(form.codigoPostal, {'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-						<div class="row">
-						<label class="col-lg-3 control-label">Pais</label>
-						<div class="col-lg-5 mb10">
-							{{ form_errors(form.pais) }}
-							{{ form_widget(form.pais, {'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-						<div class="row">
-						<label class="col-lg-3 control-label">Estado</label>
-						<div class="col-lg-5 mb10">
-							{{ form_errors(form.estado) }}
-							{{ form_widget(form.estado, {'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-						<div class="row">
-						<label class="col-lg-3 control-label">Municipio</label>
-						<div class="col-lg-5 mb10">
-							{{ form_errors(form.municipio) }}
-							{{ form_widget(form.municipio, {'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>
-				</div>
-				
+                <div id="tab1_1" class="tab-pane active">
 
-			{{ form_widget(form._token) }}
-			
-			<div class="col-xs-12">
-				<button class="btn btn-success" type="submit" id="sendform"><i class="fa fa-plus"></i>&nbsp;Crear</button>
-				<a class="btn btn-warning" href="{{ path('cliente') }}"><i class="fa fa-arrow-left">&nbsp;</i>Regresar</a>
-			</div>
+                  
+                  <div class="section row mbn">
+                    <div class="col-md-9 pl15">
 
-		</form>
-	</div>
-</div>
-{% endblock %}
+                      <div class="section row mb15"> 
+
+                        <div class="col-xs-6">                       
+                          <label for="razonSocial" class="field prepend-icon">
+                             {{ form_widget(form.cliente.razonSocial, {'attr': {'class': 'event-name gui-input br-light light','placeholder':'Razon Social'}}) }}	        
+                            <label for="razonSocial" class="field-icon">
+                              <i class="fa fa-user"></i>
+                            </label>
+                          </label>
+                           <span class="errorMsg">{{ form_errors(form.cliente.razonSocial) }}</span>
+                        </div>                         
+                        <div class="col-xs-6">                       
+                          <label for="rfc" class="field prepend-icon">
+                             {{ form_widget(form.cliente.rfc, {'attr': {'class': 'event-name gui-input br-light light','placeholder':'RFC'}}) }}         
+                            <label for="rfc" class="field-icon">
+                              <i class="fa fa-pencil"></i>
+                            </label>
+                          </label>
+                           <span class="errorMsg">{{ form_errors(form.cliente.rfc) }}</span>
+                        </div>
+
+                      </div>
+
+                      <div class="section row mb15">
+                        <div class="col-xs-12">
+                          <label for="email" class="field prepend-icon">
+                            {{ form_widget(form.cliente.email, {'attr': {'class': 'event-name gui-input br-light light','placeholder':'Email'}}) }}
+                            <label for="email" class="field-icon">
+                              <i class="fa fa-envelope"></i>
+                            </label>
+                          </label>
+                            <span class="errorMsg">{{ form_errors(form.cliente.email) }}</span>
+                        </div>
+                      </div>
+
+                        <div class="section row mb15"> 
+
+                        <div class="col-xs-6">                       
+                          <label for="telefono" class="field prepend-icon">
+                             {{ form_widget(form.cliente.telefono, {'attr': {'class': 'event-name gui-input br-light light','placeholder':'Telefono'}}) }}         
+                            <label for="telefono" class="field-icon">
+                              <i class="fa fa-phone"></i>
+                            </label>
+                          </label>
+                           <span class="errorMsg">{{ form_errors(form.cliente.telefono) }}</span>
+                        </div>                         
+                        <div class="col-xs-6">                       
+                          <label for="alias" class="field prepend-icon">
+                             {{ form_widget(form.cliente.alias, {'attr': {'class': 'event-name gui-input br-light light','placeholder':'Alias'}}) }}         
+                            <label for="alias" class="field-icon">
+                              <i class="fa fa-user"></i>
+                            </label>
+                          </label>
+                           <span class="errorMsg">{{ form_errors(form.cliente.alias) }}</span>
+                        </div>
+
+                      </div>
+
+                      <div class="section row mb15"> 
+
+                        <div class="col-xs-6">
+                        <p>Regimen Tributario</p>                    
+                          <label for="regimenTributario" class="field select">
+                             {{ form_widget(form.cliente.regimenTributario, {'attr': {'placeholder':'Regimen Tributario'}}) }}  
+                              <i class="arrow double"></i>
+                          </label>
+                           <span class="errorMsg">{{ form_errors(form.cliente.regimenTributario) }}</span>
+                        </div>                         
+                        <div class="col-xs-6">
+                        <p>Moneda</p>                       
+                          <label for="Moneda" class="field select">
+                             {{ form_widget(form.cliente.tipoMoneda) }}         
+                            <label for="Moneda" class="field-icon">
+                              <i class="arrow double"></i>
+                            </label>
+                          </label>
+                           <span class="errorMsg">{{ form_errors(form.cliente.tipoMoneda) }}</span>
+                        </div>
+
+                      </div>
+
+                      </div>
+
+                    </div>                   
+                  </div>
+
+                   <div id="tab1_2" class="tab-pane">
+                      <div class="section row mbn">
+                        <div class="col-md-9 pl15">
+                        
+                           <div class="section row mb15">
+                              <div class="col-xs-12">
+                                <label for="calle" class="field prepend-icon">
+                                  {{ form_widget(form.calle, {'attr': {'class': 'event-name gui-input br-light light','placeholder':'Calle'}}) }}
+                                  <label for="calle" class="field-icon">
+                                    <i class="fa fa-road"></i>
+                                  </label>
+                                </label>
+                                  <span class="errorMsg">{{ form_errors(form.calle) }}</span>
+                              </div>
+                          </div>
+
+                           <div class="section row mb15"> 
+                            <div class="col-xs-4">                       
+                              <label for="numeroExt" class="field prepend-icon">
+                                 {{ form_widget(form.numeroExt, {'attr': {'class': 'event-name gui-input br-light light','placeholder':'Numero Exterior'}}) }}         
+                                <label for="numeroExt" class="field-icon">
+                                  <i class="fa fa-pencil"></i>
+                                </label>
+                              </label>
+                               <span class="errorMsg">{{ form_errors(form.numeroExt) }}</span>
+                            </div>                         
+                            <div class="col-xs-4">                       
+                              <label for="numeroInt" class="field prepend-icon">
+                                 {{ form_widget(form.numeroInt, {'attr': {'class': 'event-name gui-input br-light light','placeholder':'Numero Interior'}}) }}         
+                                <label for="numeroInt" class="field-icon">
+                                  <i class="fa fa-pencil"></i>
+                                </label>
+                              </label>
+                               <span class="errorMsg">{{ form_errors(form.numeroInt) }}</span>
+                            </div>
+                            <div class="col-xs-4">                       
+                              <label for="codigoPostal" class="field prepend-icon">
+                                 {{ form_widget(form.codigoPostal, {'attr': {'class': 'event-name gui-input br-light light','placeholder':'Codigo Postal'}}) }}         
+                                <label for="codigoPostal" class="field-icon">
+                                  <i class="fa fa-pencil"></i>
+                                </label>
+                              </label>
+                               <span class="errorMsg">{{ form_errors(form.codigoPostal) }}</span>
+                            </div>
+                          </div>
+
+                           <div class="section row mb15"> 
+                            <div class="col-xs-12">                       
+                              <label for="colonia" class="field prepend-icon">
+                                 {{ form_widget(form.colonia, {'attr': {'class': 'event-name gui-input br-light light','placeholder':'Colonia'}}) }}         
+                                <label for="colonia" class="field-icon">
+                                  <i class="fa fa-pencil"></i>
+                                </label>
+                              </label>
+                               <span class="errorMsg">{{ form_errors(form.colonia) }}</span>
+                            </div>                         
+                          </div>
+
+                          <div class="section row mb15"> 
+                            <div class="col-xs-12">                     
+                              <label for="localidad" class="field prepend-icon">
+                                 {{ form_widget(form.localidad, {'attr': {'class': 'event-name gui-input br-light light','placeholder':'Localidad'}}) }}         
+                                <label for="localidad" class="field-icon">
+                                  <i class="fa fa-pencil"></i>
+                                </label>
+                              </label>
+                               <span class="errorMsg">{{ form_errors(form.localidad) }}</span>
+                             </div> 
+                          </div>
+
+                          <div class="section row mb15"> 
+                            <div class="col-xs-4">
+                              <p>Pais</p>                       
+                              <label for="pais" class="field select">
+                                 {{ form_widget(form.pais) }}         
+                                <label for="pais" class="field-icon">
+                                  <i class="arrow double"></i>
+                                </label>
+                              </label>
+                               <span class="errorMsg">{{ form_errors(form.pais) }}</span>
+                            </div>
+                            <div class="col-xs-4">
+                              <p>Estado</p>                       
+                              <label for="estado" class="field select">
+                                 {{ form_widget(form.estado) }}         
+                                <label for="estado" class="field-icon">
+                                  <i class="arrow double"></i>
+                                </label>
+                              </label>
+                               <span class="errorMsg">{{ form_errors(form.estado) }}</span>
+                            </div>
+                            <div class="col-xs-4">
+                              <p>Municipio</p>                       
+                              <label for="municipio" class="field select">
+                                 {{ form_widget(form.municipio) }}         
+                                <label for="municipio" class="field-icon">
+                                  <i class="arrow double"></i>
+                                </label>
+                              </label>
+                               <span class="errorMsg">{{ form_errors(form.municipio) }}</span>
+                            </div>  
+                        </div>
+
+                         {{ form_widget(form._token) }}  
+                         
+                            <div class="col-xs-12">
+                              <button class="btn btn-success" type="submit" id="sendform"><i class="fa fa-plus"></i>&nbsp;Crear</button>
+                            </div>
+                          
+                          </form>
+
+                        </div>
+                      </div>
+                    </div>
+
+                  
+          </div>
+        </div>
+      </div>

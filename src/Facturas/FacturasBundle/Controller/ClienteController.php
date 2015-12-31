@@ -22,15 +22,17 @@ class ClienteController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        //$entities = $em->getRepository('FacturasBundle:Cliente')->findAll();
-
-        $query = $em -> createQuery('SELECT c, dc FROM FacturasBundle:DireccionCliente dc LEFT JOIN dc.cliente c WHERE c.id = dc.cliente');
-        $entities = $query -> getResult();
         
-        return $this->render('FacturasBundle:Cliente:index.html.twig', array(
-            'entities' => $entities,
+        return $this->render('FacturasBundle:Cliente:index.html.twig');
+    }
+
+    public function listadoAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entities = $em ->getRepository('FacturasBundle:Cliente')->clientes();
+
+        return $this->render('FacturasBundle:Cliente:listado.html.twig', array(
+            'entities' => $entities
         ));
     }
     /**
@@ -99,10 +101,7 @@ class ClienteController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        //$entity = $em->getRepository('FacturasBundle:Cliente')->find($id);
-
-        $query = $em -> createQuery('SELECT c, dc FROM FacturasBundle:DireccionCliente dc JOIN dc.cliente c WHERE c.id = :id')->setParameter('id',$id);
-        $entity = $query -> getResult();
+        $entity = $em->getRepository('FacturasBundle:Cliente')->clienteShow($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Cliente entity.');

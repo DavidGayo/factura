@@ -1,74 +1,60 @@
 {% extends '::base.html.twig' %}
-
-{% block body -%}
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <span class="panel-title">Cliente</span>
+{% block placeholder -%}
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li class="active"><span>Usuarios</span></li>
+        </ol>
+        <div class="clearfix">
+            <h1 class="pull-left">Usuarios</h1>
+            <div class="pull-right top-page-ui">
+                <a href="{{ path('user_new')}}" class="btn btn-primary pull-right">
+                    <i class="fa fa-plus-circle fa-lg"></i> Agregar Cliente
+                </a>
+            </div>
+        </div>
     </div>
-    <div class="panel-body">
-        <a href="{{ path('direccioncliente_new') }}" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;Nuevo</a>
-        <div class="table-responsive mt15">
-            <table class="records_list table table-bordered mbn">
-        <thead>
-            <tr>
-                <th>RFC</th>
-                <th>Razon Social</th>
-                <th>Alias</th>
-                 <th>Email</th>
-                <th>Calle</th>
-                <th>Municipio</th>
-                <th>Estado</th>
-                <th>Pais</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('cliente_show', { 'id': entity.cliente.id }) }}">{{ entity.cliente.rfc }}</a></td>
-                <td>{{ entity.cliente.razonSocial}}</td>
-                <td>{{ entity.cliente.alias }}</td>
-                <td>{{ entity.cliente.email }}</td>
-                <td>{{ entity.calle }}</td>
-                <td>{{ entity.municipio }}</td>
-                <td>{{ entity.estado }}</td>
-                <td>{{ entity.pais }}</td>
-                <td>
-                    <a href="{{ path('cliente_show', { 'id': entity.cliente.id }) }}" class="btn btn-default"><i class="fa fa-eye"></i>&nbsp;Ver</a>
-                    <a href="{{ path('direccioncliente_edit', { 'id': entity.id }) }}" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
-                    <a href="{{ path('direccioncliente_add', {'id': entity.cliente.id }) }}" class="btn btn-info"><i class="fa fa-plus"></i>&nbsp;Direccion</a>
-                    <a href="{{ path('contactocliente_add', {'id': entity.cliente.id }) }}" class="btn btn-warning"><i class="fa fa-plus"></i>&nbsp;Contacto</a>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    </div><!-- table-responsive -->
-    </div><!-- panel-body -->
-</div><!-- panel -->
+</div>
+{% endblock -%}
 
-   <div id="direccion">
-    </div>
-    <div id="contacto">
-    </div>
-    
-    {% endblock %}
+{% block body %}
+    <section id="content" class="table-layout">
 
-    {% block js%}
-    <script>
-    $(document).ready(function(){
+        <!-- begin: .tray-center -->
+        <div class="tray tray-center" style="height: 842px;">
+        {% block form -%}
+          {{ render(controller('FacturasBundle:DireccionCliente:new')) }}
+        {% endblock -%}
+          <!-- recent orders table -->
+          <div class="panel">           
+            <div class="panel-body pn">
+              <div class="table-responsive">
+                <table class="table admin-form theme-warning tc-checkbox-1 fs13">
+                  <thead>
+                    <tr>
+                        <th>RFC</th>
+                        <th>Razon Social</th>
+                        <th>Alias</th>
+                        <th>Email</th>
+                        <th>Calle</th>
+                        <th>Municipio</th>
+                        <th>Estado</th>
+                        <th>Pais</th>
+                        <th class="text-right">Status</th>
+                    </tr>
+                </thead>
+                  {% block lista -%}
+                    {{ render(controller('FacturasBundle:Cliente:listado')) }}
+                  {% endblock -%}              
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
-        $("a.btn-info").on("click",function(event){
-           event.preventDefault();
-             $('#direccion').load(this.href); 
-        });
+        </div>
 
-        $("a.btn-warning").on("click",function(event){
-            event.preventDefault();
-            $('#contacto').load(this.href);
-        });
+      </section>
 
-    })
-    </script>
-
-    {% endblock js %}
+{% endblock %}

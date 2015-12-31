@@ -1,6 +1,6 @@
 Usuario\UserBundle\Entity\User:
     type: entity
-    table: null
+    table: usuario
     id:
         id:
             type: integer

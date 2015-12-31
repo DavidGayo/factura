@@ -35,7 +35,12 @@ class Producto
     /**
      * @var integer
      */
-    private $precioUnitario;
+    private $precioUnitarioMxn;
+
+    /**
+     * @var integer
+     */
+    private $precioUnitarioUsd;
 
     /**
      * @var string
@@ -155,27 +160,51 @@ class Producto
     }
 
     /**
-     * Set precioUnitario
+     * Set precioUnitarioMxn
      *
-     * @param integer $precioUnitario
+     * @param integer $precioUnitarioMxn
      *
      * @return Producto
      */
-    public function setPrecioUnitario($precioUnitario)
+    public function setPrecioUnitarioMxn($precioUnitarioMxn)
     {
-        $this->precioUnitario = $precioUnitario;
+        $this->precioUnitarioMxn = $precioUnitarioMxn;
 
         return $this;
     }
 
     /**
-     * Get precioUnitario
+     * Get precioUnitarioMxn
      *
      * @return integer
      */
-    public function getPrecioUnitario()
+    public function getPrecioUnitarioMxn()
     {
-        return $this->precioUnitario;
+        return $this->precioUnitarioMxn;
+    }
+
+     /**
+     * Set precioUnitarioUsd
+     *
+     * @param integer $precioUnitarioUsd
+     *
+     * @return Producto
+     */
+    public function setPrecioUnitarioUsd($precioUnitarioUsd)
+    {
+        $this->precioUnitarioUsd = $precioUnitarioUsd;
+
+        return $this;
+    }
+
+    /**
+     * Get precioUnitarioUsd
+     *
+     * @return integer
+     */
+    public function getPrecioUnitarioUsd()
+    {
+        return $this->precioUnitarioUsd;
     }
 
     /**

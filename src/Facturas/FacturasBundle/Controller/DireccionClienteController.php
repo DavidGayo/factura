@@ -91,7 +91,8 @@ class DireccionClienteController extends Controller
         ));
     }
 
-    public function addAction(Request $request,$id)
+    //fincion de agregar una nueva direccion
+    /*public function addAction(Request $request,$id)
     {
         $em = $this->getDoctrine()->getManager();
         $cliente = $em -> getRepository('FacturasBundle:Cliente')->find($id);
@@ -117,7 +118,7 @@ class DireccionClienteController extends Controller
              'form'   => $form->createView(),
              'edit_form'   => $editForm->createView(),
         ));
-    }
+    }*/
 
     /**
      * Finds and displays a DireccionCliente entity.

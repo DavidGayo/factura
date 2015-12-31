@@ -1,0 +1,33 @@
+ 
+ <tbody>
+                  {% for entity in entities %}         
+                    <tr>
+                        <td><a href="{{ path('cliente_edit', { 'id': entity.cliente.id }) }}">{{ entity.cliente.rfc }}</a></td>
+                        <td>{{ entity.cliente.razonSocial}}</td>
+                        <td>{{ entity.cliente.alias }}</td>
+                        <td>{{ entity.cliente.email }}</td>
+                        <td>{{ entity.calle }}</td>
+                        <td>{{ entity.municipio }}</td>
+                        <td>{{ entity.estado }}</td>
+                        <td>{{ entity.pais }}</td>
+                         <td class="text-right">
+                        <div class="btn-group text-right">
+                          <button type="button" class="btn btn-success br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Active
+                            <span class="caret ml5"></span>
+                          </button>
+                          <ul class="dropdown-menu" role="menu">
+                            <li>
+                              <a href="{{ path('direccioncliente_edit', { 'id': entity.id }) }}">Editar</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="active">
+                              <a href="#">Activo</a>
+                            </li>
+                            <li>
+                              <a href="{{ path('cliente_show', { 'id': entity.id }) }}">Eliminar</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    {% endfor %}  

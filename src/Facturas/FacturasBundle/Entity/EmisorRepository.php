@@ -10,4 +10,8 @@ namespace Facturas\FacturasBundle\Entity;
  */
 class EmisorRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function emisor($id)
+	{
+		return $this->getEntityManager()-> createQuery('SELECT e, de FROM FacturasBundle:DireccionEmisor de JOIN de.emisor e WHERE e.id = :id')->setParameter('id',$id)->getResult();
+	}
 }
