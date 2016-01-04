@@ -1,10 +1,6 @@
 Usuario\UserBundle\Entity\User:
     type: entity
-<<<<<<< HEAD
     table: usuario
-=======
-    table: null
->>>>>>> ed27cfc61bc2e420f7235fb05a5a26863b928b1b
     id:
         id:
             type: integer
